@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<layout>
+    <adminhtml_region_index>
+        <reference name="content">
+            <block type="location/region" name="adminhtml.region.index"/>
+        </reference>
+    </adminhtml_region_index>
+    
+    <adminhtml_region_edit>
+        <reference name="content">
+            <block type="location/region_edit" name="adminhtml.region.edit" />
+        </reference>
+        <reference name="js">
+            <block type="core/template" template="locale/locale.phtml" name="locale.locale.js" />
+            <block type="core/template" template="location/location.phtml" name="location.location.js" />
+        </reference>
+    </adminhtml_region_edit>
+    
+    <adminhtml_area_index>
+        <reference name="content">
+            <block type="location/area" name="adminhtml.area.index"/>
+        </reference>
+        <reference name="js">
+            <block type="core/template" template="location/location.phtml" name="location.location.js" />
+        </reference>
+    </adminhtml_area_index>
+    
+    <adminhtml_area_edit>
+        <reference name="content">
+            <block type="location/area_edit" name="adminhtml.area.edit" />
+        </reference>
+        <reference name="js">
+            <block type="core/template" template="locale/locale.phtml" name="locale.locale.js" />
+            <block type="core/template" template="location/location.phtml" name="location.location.js" />
+        </reference>
+    </adminhtml_area_edit>
+    
+    <adminhtml_building_index>
+        <reference name="content">
+            <block type="location/building" name="adminhtml.building.index"/>
+        </reference>
+        <reference name="js">
+            <block type="core/template" template="location/location.phtml" name="location.location.js" />
+        </reference>
+    </adminhtml_building_index>
+    
+    <adminhtml_building_edit>
+        <reference name="content">
+            <block type="location/building_edit" name="adminhtml.building.edit"/>
+        </reference>
+        <reference name="js">
+            <block type="core/template" template="locale/locale.phtml" name="locale.locale.js" />
+            <block type="core/template" template="location/location.phtml" name="location.location.js" />
+        </reference>
+    </adminhtml_building_edit>
+</layout>

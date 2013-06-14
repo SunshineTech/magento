@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+         <system>
+            <children>
+                <location translate="title" module="location">
+                    <title>Location Management</title>
+                    <sort_order>105</sort_order>
+                    <children>
+                        <region translate="title">
+                            <title>Region Management</title>
+                            <action>adminhtml/region</action>
+                        </region>
+                        <area translate="title">
+                            <title>Area Management</title>
+                            <action>adminhtml/area</action>
+                        </area>
+                        <building translate="title">
+                            <title>Building Management</title>
+                            <action>adminhtml/building</action>
+                        </building>
+                    </children>
+                </location>
+            </children>
+         </system>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <location translate="title">
+                                <title>Location Management</title>
+                                <children>
+                                    <region translate="title">
+                                        <title>Region Management</title>
+                                        <sort_order>10</sort_order>
+                                    </region>
+                                    <area translate="title">
+                                        <title>Area Management</title>
+                                        <sort_order>20</sort_order>
+                                    </area>
+                                    <building translate="title">
+                                        <title>Building Management</title>
+                                        <sort_order>30</sort_order>
+                                    </building>
+                                </children>
+                            </location>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

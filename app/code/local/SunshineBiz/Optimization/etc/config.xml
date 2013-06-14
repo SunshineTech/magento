@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SunshineBiz_Optimization>
+            <version>1.0.0.0.0</version>
+        </SunshineBiz_Optimization>
+    </modules>
+    <global>
+        <helpers>
+            <optimization>
+                <class>SunshineBiz_Optimization_Helper</class>
+            </optimization>
+        </helpers>
+        <blocks>
+            <adminhtml>  
+                <rewrite>  
+                    <widget_grid_column_renderer_massaction>SunshineBiz_Optimization_Block_Widget_Grid_Column_Renderer_Massaction</widget_grid_column_renderer_massaction>
+                    <widget_grid_column_filter_price>SunshineBiz_Optimization_Block_Widget_Grid_Column_Filter_Price</widget_grid_column_filter_price>
+                    <widget_grid_column_filter_text>SunshineBiz_Optimization_Block_Widget_Grid_Column_Filter_Text</widget_grid_column_filter_text>
+                </rewrite>  
+            </adminhtml>  
+        </blocks>
+    </global>
+    <adminhtml>
+    	<translate>
+            <modules>
+                <SunshineBiz_Optimization>
+                    <files>
+                        <default>SunshineBiz_Optimization.csv</default>
+                    </files>
+                </SunshineBiz_Optimization>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>
