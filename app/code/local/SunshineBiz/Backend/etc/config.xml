@@ -21,7 +21,7 @@
         <layout>
             <updates>
                 <backend>
-                    <file>backend.xml</file>
+                    <file>sunshinebiz_backend.xml</file>
                 </backend>
             </updates>
         </layout>

@@ -86,7 +86,7 @@
         <layout>
             <updates>
                 <location>
-                    <file>location.xml</file>
+                    <file>sunshinebiz_location.xml</file>
                 </location>
             </updates>
         </layout>

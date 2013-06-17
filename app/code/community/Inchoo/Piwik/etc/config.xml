@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Branko Ajzele <ajzele@gmail.com>
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Inchoo_Piwik>
+            <version>1.0.0.0.0.0</version>
+        </Inchoo_Piwik>
+    </modules>    
+    <global>
+        <blocks>
+            <inchoo_piwik>
+                <class>Inchoo_Piwik_Block</class>
+            </inchoo_piwik>
+        </blocks>
+        <helpers>
+            <inchoo_piwik>
+                <class>Inchoo_Piwik_Helper</class>
+            </inchoo_piwik>
+        </helpers>
+    </global>
+    <adminhtml>
+    	<translate>
+            <modules>
+                <Inchoo_Piwik>
+                    <files>
+                        <default>Inchoo_Piwik.csv</default>
+                    </files>
+                </Inchoo_Piwik>
+            </modules>
+        </translate>
+    </adminhtml>
+    <frontend>
+        <layout>
+            <updates>
+                <inchoo_piwik>
+                    <file>inchoo_piwik.xml</file>
+                </inchoo_piwik>
+            </updates>
+        </layout>       
+    </frontend>
+    <admin>
+         <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <inchoo_piwik after="Mage_Adminhtml">Inchoo_Piwik_Adminhtml</inchoo_piwik>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>         
+</config>
