@@ -35,11 +35,11 @@ class Inchoo_LoginAsCustomer_Model_Observer
     public function injectLoginAsCustomerButton($observer)
     {
         $block = $observer->getEvent()->getBlock();
-
-        if ($block instanceof Mage_Adminhtml_Block_Customer_Edit) {
+        $enabled = Mage::getStoreConfig('customer/inchoo_loginAsCustomer/active');
+        if ($enabled && $block instanceof Mage_Adminhtml_Block_Customer_Edit) {
             if ($this->getCustomer() && $this->getCustomer()->getId()) {
                 $block->addButton('loginAsCustomer', array(
-                    'label' => Mage::helper('customer')->__('Login as Customer'),
+                    'label' => Mage::helper('inchoo_loginAsCustomer')->__('Login as Customer'),
                     'onclick' => 'setLocation(\'' . $this->getLoginAsCustomerUrl() . '\')',
                     'class' => 'loginAsCustomer',
                 ), 0);

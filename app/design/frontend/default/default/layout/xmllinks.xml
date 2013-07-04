@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+        <reference name="header">
+            <reference name="top.links">
+                <action method="removeLinkByUrl" ifconfig="design/header/my_account">
+                    <url helper="customer/getAccountUrl"/>
+                </action>
+                <action method="removeLinkByUrl" ifconfig="design/header/my_cart">
+                    <url helper="checkout/url/getCartUrl" />
+                </action>
+                <action method="removeLinkByUrl" ifconfig="design/header/checkout">
+                    <url helper="xmllinks/getUrl">
+                        <url>checkout</url>
+                    </url>
+                </action>
+            </reference>
+            <reference name="top.menu">
+                <remove name="catalog.topnav" />
+                <block type="catalog/navigation" name="catalog.topnav.xmllinks" template="xmllinks/catalog/navigation/top.phtml"/>
+            </reference>
+        </reference>
+        <reference name="wishlist_link">
+            <action method="setTemplate" ifconfig="design/header/my_wishlist">
+                <template>xmllinks/blank-link.phtml</template>
+            </action>
+        </reference>
+        <reference name="footer">
+            <action method="unsetChild" ifconfig="design/footer/static_block_links">
+                <name>cms_footer_links</name>
+            </action>            
+            <reference name="footer_links">
+                <action method="removeLinkByUrl" ifconfig="design/footer/sitemap">
+                    <url helper="catalog/map/getCategoryUrl" />
+                </action>
+                <action method="removeLinkByUrl" ifconfig="design/footer/search_terms">
+                    <url helper="catalogsearch/getSearchTermUrl" />
+                </action>
+                <action method="removeLinkByUrl" ifconfig="design/footer/advanced_search">
+                    <url helper="catalogsearch/getAdvancedSearchUrl" />
+                </action>
+                <action method="removeLinkByUrl" ifconfig="design/footer/contact_us">
+                    <url helper="xmllinks/getUrl">
+                        <url>contacts</url>
+                    </url>
+                </action>
+            </reference>
+        </reference>
+    </default>    
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/account_dashboard">
+                <name>account</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/account_information">
+                <name>account_edit</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/address_book">
+                <name>address_book</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/my_orders">
+                <name>orders</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/my_tags">
+                <name>tags</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/my_wishlist">
+                <name>wishlist</name>
+            </action>
+
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/recurring_profiles">
+                <name>recurring_profiles</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/billing_agreements">
+                <name>billing_agreements</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/my_downloadable_products">
+                <name>downloadable_products</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/my_product_reviews">
+                <name>reviews</name>
+            </action>
+            <action method="removeLinkByName" ifconfig="customer/account_navigation/newsletter_subscriptions">
+                <name>newsletter</name>
+            </action>
+        </reference>
+    </customer_account>
+    <customer_logged_out>
+        <reference name="top.links">
+            <action method="removeLinkByUrl" ifconfig="design/header/login">
+                <url helper="customer/getLoginUrl"/>
+            </action>
+        </reference>
+    </customer_logged_out>
+    <customer_logged_in>
+        <reference name="top.links">
+            <action method="removeLinkByUrl" ifconfig="design/header/login">
+                <url helper="customer/getLogoutUrl"/>
+            </action>
+        </reference>
+    </customer_logged_in>
+</layout>

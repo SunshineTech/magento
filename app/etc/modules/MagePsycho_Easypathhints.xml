@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+Easy Template Path Hints extension is used to turn on the template 
+path hints for frontend & backend with ease in a secured way. 
+Moreover it's joomla way of turning on the template path hints.
+/**
+ * @category   MagePsycho
+ * @package    MagePsycho_Easypathhints
+ * @author     info@magepsycho.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <MagePsycho_Easypathhints>
+            <active>true</active>
+            <codePool>community</codePool>
+        </MagePsycho_Easypathhints>
+    </modules>
+</config>

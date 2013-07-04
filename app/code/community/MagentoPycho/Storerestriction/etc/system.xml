@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/** 
+ * GuruWebSoft (www.guruwebsoft.com)
+ * 
+ * @author     MagentoPycho <rajen_k_bhtt@hotmail.com>
+ * @category   Catalog/Customer
+ * @package    MagentoPycho_Storerestriction
+ */
+ -->
+<config>
+    <sections>
+        <storerestriction>
+            <label>Store Restriction</label>
+            <tab>customer</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>340</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <option translate="label">
+                    <label>Store Restriction Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <customers translate="label">
+                            <label>Allowed Customer Groups</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>storerestriction/source_customergroups</source_model>    
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </customers>
+                        <message translate="label">
+                            <label>Error Message</label>
+                            <frontend_type>textarea</frontend_type>                             
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </message>
+                    </fields>
+                </option>
+            </groups>
+        </storerestriction>
+    </sections>
+</config>

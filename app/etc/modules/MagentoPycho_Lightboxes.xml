@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+jQuery lightboxes is the collection/implementation of jQuery Lightbox for Magento Media Gallery. 
+Moreover consider it as an one stop search for jQuery Lightbox for magento. 
+Currently it includes the FancyBox, PiroBox, PiroBox Extended, prettyPhoto and Lightbox Clone one. 
+Still more to come in newer versions.
+/**
+ * @category   MagentoPycho
+ * @package    MagentoPycho_Lightboxes
+ * @author     magepsycho@gmail.com
+ * @website    http://www.magepsycho.com
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <MagentoPycho_Lightboxes>
+            <active>true</active>
+            <codePool>community</codePool>
+        </MagentoPycho_Lightboxes>
+    </modules>
+</config>

@@ -1,0 +1,7 @@
+"Cleanup entries older than X minutes.","清理项目超过X分钟。"
+"Cleanup Probability","清理概率"
+"Cleanup Settings","清理设置"
+"Expiration Period","有效期限"
+"Integer. Launch cleanup in X OAuth requests. 0 (not recommended) - to disable cleanup","整数。每X个OAuth请求加载清理。０（不推荐）——禁用清理"
+"Token Status Change","令牌状态改变"
+"Token Status Change Email Template","令牌状态改变电子邮件模板"

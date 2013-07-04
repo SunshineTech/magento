@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Magento extension which changes the way Magento calculates tier prices of configurable products. 
+You can now add different variants of a configurable product to the cart and you will get the tier price for the total quantity of all variants in the cart.
+-->
+<config>
+    <modules>
+        <Spranks_ConfigurableTierPrices>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Spranks_ConfigurableTierPrices>
+    </modules>
+</config>

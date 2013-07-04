@@ -43,7 +43,7 @@
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
-                <general translate="label">
+                <general translate="label" module="sales">
                     <label>General</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>5</sort_order>
@@ -62,7 +62,7 @@
                         </hide_customer_ip>
                     </fields>
                 </general>
-                <totals_sort translate="label">
+                <totals_sort translate="label" module="sales">
                     <label>Checkout Totals Sort Order</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>10</sort_order>
@@ -131,7 +131,7 @@
                         </allow>
                     </fields>
                 </reorder>
-                <identity translate="label">
+                <identity translate="label" module="sales">
                     <label>Invoice and Packing Slip Design</label>
                     <sort_order>40</sort_order>
                     <show_in_default>1</show_in_default>
@@ -173,7 +173,7 @@
                     </fields>
                 </identity>
 
-                <minimum_order translate="label">
+                <minimum_order translate="label" module="sales">
                     <label>Minimum Order Amount</label>
                     <sort_order>50</sort_order>
                     <show_in_default>1</show_in_default>

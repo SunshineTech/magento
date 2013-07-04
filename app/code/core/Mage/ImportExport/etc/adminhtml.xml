@@ -29,14 +29,14 @@
     <menu>
         <system>
             <children>
-                <convert translate="title">
+                <convert>
                     <children>
-                        <import translate="title" module="importexport">
+                        <import>
                             <title>Import</title>
                             <action>adminhtml/import</action>
                             <sort_order>10</sort_order>
                         </import>
-                        <export translate="title" module="importexport">
+                        <export>
                             <title>Export</title>
                             <action>adminhtml/export</action>
                             <sort_order>20</sort_order>
@@ -52,13 +52,13 @@
                 <children>
                     <system>
                         <children>
-                            <convert module="importexport">
+                            <convert translate="title" module="importexport">
                                 <children>
-                                    <import translate="title">
+                                    <import>
                                         <title>Import</title>
                                         <sort_order>10</sort_order>
                                     </import>
-                                    <export translate="title">
+                                    <export>
                                         <title>Export</title>
                                         <sort_order>20</sort_order>
                                     </export>

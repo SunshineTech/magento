@@ -73,7 +73,7 @@ class Mage_ImportExport_Model_Config
             $options[] = array('label' => Mage::helper('importexport')->__('-- Please Select --'), 'value' => '');
         }
         foreach (self::getModels($configKey) as $type => $params) {
-            $options[] = array('value' => $type, 'label' => $params['label']);
+            $options[] = array('value' => $type, 'label' => Mage::helper('importexport')->__($params['label']));//添加翻译 iSunshineTech <isunshinetech@gmail.com>
         }
         return $options;
     }

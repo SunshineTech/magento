@@ -25,7 +25,7 @@
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
+                            <show_in_store>0</show_in_store>
                         </active>
                         <single_order_top_amount>
                             <label>Single Order Maximum Amount</label>
@@ -34,7 +34,7 @@
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>                            
+                            <show_in_store>0</show_in_store>                            
                         </single_order_top_amount>
                         <single_order_top_amount_msg>
                             <label>Single Order Maximum Amount Message</label>
@@ -43,7 +43,7 @@
                             <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>                            
+                            <show_in_store>0</show_in_store>                            
                         </single_order_top_amount_msg>                        
                         <order_amount_notification>
                             <label>Order Amount Notification</label>
@@ -52,7 +52,7 @@
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
+                            <show_in_store>0</show_in_store>
                         </order_amount_notification>
                         <notify_to_emails>
                             <label>Notification TO emails</label>
@@ -61,7 +61,7 @@
                             <sort_order>50</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>                            
+                            <show_in_store>0</show_in_store>                            
                         </notify_to_emails>
                         <order_amount_notification_email_template translate="label">
                             <label>Order Amount Notification Email Template</label>

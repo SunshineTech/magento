@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+Adds the possibility to limit the maximum order amount.
 /**
  * @category    Inchoo
  * @package     Inchoo_MaxOrderAmount

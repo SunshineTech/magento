@@ -57,6 +57,15 @@
     </global>
 
     <adminhtml>
+        <translate>
+            <modules>
+                <Inchoo_LoginAsCustomer>
+                    <files>
+                        <default>Inchoo_LoginAsCustomer.csv</default>
+                    </files>
+                </Inchoo_LoginAsCustomer>
+            </modules>
+        </translate>
         <events>
             <adminhtml_widget_container_html_before>
                 <observers>
@@ -94,11 +103,4 @@
             </inchoo_loginAsCustomer>
         </routers>
     </frontend>
-    <default>
-        <inchoo_loginAsCustomer>
-            <settings>
-                <active><![CDATA[0]]></active>
-            </settings>
-        </inchoo_loginAsCustomer>
-    </default>
 </config>

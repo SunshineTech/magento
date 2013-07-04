@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+Store Restriction is used to restrict the store from non-logged in customers.
+-->
+<config>
+    <modules>
+        <MagentoPycho_Storerestriction>
+            <active>true</active>
+            <codePool>community</codePool>
+        </MagentoPycho_Storerestriction>
+    </modules>
+</config>

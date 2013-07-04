@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- 
+Custom PDF Invoice Layout is used to customize the pdf layout by adding logo image of any size, header text
+/**
+ * 
+ * GuruWebSoft (www.guruwebsoft.com)
+ * 
+ * @author     MagentoPycho <rajen_k_bhtt@hotmail.com>
+ * @category   PDF_Invoice
+ * @package    MagentoPycho_PdfInvoice
+ */
+-->
+<config>
+    <modules>
+        <MagentoPycho_PdfInvoice>
+            <active>true</active>
+            <codePool>community</codePool>
+        </MagentoPycho_PdfInvoice>
+    </modules>
+</config> 

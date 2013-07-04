@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * MagePsycho <http://www.magepsycho.com>
+ * 
+ * @author     MagentoPycho <info@magepsycho.com>
+ * @category   Catalog/Customer
+ * @package    MagentoPycho_Storerestriction
+ */
+?>
+<?php
+
+#Mage::getSingleton('customer/session')->setBeforeAuthUrl($this->getRequest()->getRequestUri());  //save requested URL for later redirection
+$storeId = Mage::app()->getStore()->getId();
+if (Mage::getStoreConfig('storerestriction/option/active', $storeId) == 1) {
+    $customers = Mage::getStoreConfig('storerestriction/option/customers', $storeId);
+    $groups = $customers ? explode(',', $customers) : false;
+    $strictedAccess = false;
+    if ($groups) {
+        if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+            $customer = Mage::getSingleton('customer/session')->getCustomer();
+            if (!in_array($customer->getGroupId(), $groups)) {
+                Mage::getSingleton('customer/session')->logout();
+                $strictedAccess = true;
+            }
+        } else {
+            if (!in_array(0, $groups)) {
+                $strictedAccess = true;
+            }
+        }
+    } else {
+        $strictedAccess = true;
+    }
+
+    if ($strictedAccess === true) {
+        Mage::getSingleton('core/session')->addError(Mage::getStoreConfig('storerestriction/option/message', $storeId));
+        #Mage::app()->getResponse()->setRedirect(Mage::helper('adminhtml')->getUrl("customer/account/login")); 
+        echo "<script type=\"text/javascript\">window.location='" . Mage::getUrl("customer/account/login") . "';</script>";
+        exit();
+    }
+}
+?>

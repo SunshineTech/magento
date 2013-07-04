@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/** 
+* GuruWebSoft (www.guruwebsoft.com)
+* 
+* @author     MagentoPycho <rajen_k_bhtt@hotmail.com>
+* @category   Catalog/Customer
+* @package    MagentoPycho_Storerestriction
+*/
+-->
+<config>
+    <modules>
+        <MagentoPycho_Storerestriction>
+            <version>1.0.0</version>            
+        </MagentoPycho_Storerestriction>
+    </modules>    
+    <global>
+        <models>
+            <storerestriction>
+                <class>MagentoPycho_Storerestriction_Model</class>
+            </storerestriction>
+        </models>
+        <helpers>
+            <storerestriction>
+                <class>MagentoPycho_Storerestriction_Helper</class>
+            </storerestriction>
+        </helpers>
+    </global>    
+    <frontend>
+        <layout>
+            <updates>
+                <storerestriction>
+                    <file>storerestriction.xml</file>
+                </storerestriction>
+            </updates>
+        </layout>
+    </frontend>    
+    <adminhtml>
+        <translate>
+            <modules>
+                <MagentoPycho_Storerestriction>
+                    <files>
+                        <default>MagentoPycho_Storerestriction.csv</default>
+                    </files>
+                </MagentoPycho_Storerestriction>
+            </modules>
+        </translate>
+    </adminhtml>    
+</config>

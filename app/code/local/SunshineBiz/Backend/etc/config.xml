@@ -11,8 +11,7 @@
                 <rewrite>  
                     <notification_toolbar>SunshineBiz_Backend_Block_Notification_Toolbar</notification_toolbar>
                     <notification_window>SunshineBiz_Backend_Block_Notification_Window</notification_window>
-                    <page_header>SunshineBiz_Backend_Block_Page_Header</page_header>
-                    <store_switcher>SunshineBiz_Backend_Block_Store_Switcher</store_switcher>                      
+                    <page_header>SunshineBiz_Backend_Block_Page_Header</page_header>                                          
                 </rewrite>  
             </adminhtml>  
         </blocks>

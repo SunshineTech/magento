@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
+<!--
+Magento extension that enables admin users to login as any customer on
+the frontend.
+-->
 <config>
     <modules>
         <Inchoo_LoginAsCustomer>

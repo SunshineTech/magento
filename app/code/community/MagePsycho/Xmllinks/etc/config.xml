@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @category   MagePsycho
+* @package    MagePsycho_Xmllinks
+* @author     info@magepsycho.com
+* @website    http://www.magepsycho.com
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <MagePsycho_Xmllinks>
+            <version>0.1.0</version>
+        </MagePsycho_Xmllinks>
+    </modules>
+    <global>
+        <blocks>
+            <customer>
+                <rewrite>
+                    <account_navigation>MagePsycho_Xmllinks_Block_Account_Navigation</account_navigation>
+                </rewrite>
+            </customer>
+        </blocks>
+        <helpers>
+            <xmllinks>
+                <class>MagePsycho_Xmllinks_Helper</class>
+            </xmllinks>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <xmllinks>
+                    <file>xmllinks.xml</file>
+                </xmllinks>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <MagePsycho_Xmllinks>
+                    <files>
+                        <default>MagePsycho_Xmllinks.csv</default>
+                    </files>
+                </MagePsycho_Xmllinks>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>

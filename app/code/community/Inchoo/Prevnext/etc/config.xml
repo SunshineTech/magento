@@ -30,6 +30,17 @@
             </inchoo_prevnext>
         </blocks>      
     </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Inchoo_Prevnext>
+                    <files>
+                        <default>Inchoo_Prevnext.csv</default>
+                    </files>
+                </Inchoo_Prevnext>
+            </modules>
+        </translate>
+    </adminhtml>
     <frontend>
         <translate>
             <modules>
@@ -39,7 +50,7 @@
                     </files>
                 </Inchoo_Prevnext>
             </modules>
-        </translate>          
+        </translate>                  
         <events>
             <controller_action_postdispatch>
                 <observers>
@@ -58,4 +69,11 @@
             </updates>
         </layout>        
     </frontend>
+    <default>
+        <catalog>
+            <inchoo_prevnext>
+                <active>1</active>
+            </inchoo_prevnext>
+        </catalog>
+    </default>
 </config>

@@ -52,7 +52,7 @@ abstract class Mage_Captcha_Model_Config_Form_Abstract extends Mage_Core_Model_C
             foreach ($backendNode->children() as $formNode) {
                 /* @var $formNode Mage_Core_Model_Config_Element */
                 if (!empty($formNode->label)) {
-                    $optionArray[] = array('label' => (string)$formNode->label, 'value' => $formNode->getName());
+                    $optionArray[] = array('label' => Mage::helper('captcha')->__((string)$formNode->label), 'value' => $formNode->getName());//添加翻译 iSunshineTech <isunshinetech@gmail.com>
                 }
             }
         }

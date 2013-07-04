@@ -21,8 +21,7 @@ class Inchoo_Prevnext_Model_Observer
 				->getLoadedProductCollection()
 				->getColumnValues('entity_id');
 
-		Mage::getSingleton('core/session')
-				->setInchooFilteredCategoryProductCollection($products);
+		Mage::getSingleton('core/session')->setInchooFilteredCategoryProductCollection($products);
 
 		unset($products);
 	}

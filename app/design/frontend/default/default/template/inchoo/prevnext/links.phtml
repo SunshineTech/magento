@@ -10,7 +10,7 @@
 <?php $_next = $this->getNextProduct(); ?>
 
 <?php if($_prev || $_next): ?>
-<div class="block" style="border: none;">
+<div style="margin: 0 0 20px;">
     <div style="float: left">
         <?php if($_prev): ?>
         <a rel="prev" onmousemove="document.getElementById('pre-img').style.display = '';" onmouseout="document.getElementById('pre-img').style.display = 'none';" class="product-prev left" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">&laquo; <?php echo Mage::helper('inchoo_prevnext')->__('Previous') ?></a>&nbsp;

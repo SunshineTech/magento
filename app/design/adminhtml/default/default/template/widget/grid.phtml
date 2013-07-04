@@ -77,7 +77,7 @@ $numColumns = sizeof($this->getColumns());
 
             <?php echo $this->__('of %s pages', $this->getCollection()->getLastPageNumber()) ?>
             <span class="separator">|</span>
-            <?php echo Mage::helper('widget')->__('View') ?>
+            <?php echo $this->__('View') ?>
             <select name="<?php echo $this->getVarNameLimit() ?>" onchange="<?php echo $this->getJsObjectName() ?>.loadByElement(this)">
                 <option value="20"<?php if($this->getCollection()->getPageSize()==20): ?> selected="selected"<?php endif; ?>>20</option>
                 <option value="30"<?php if($this->getCollection()->getPageSize()==30): ?> selected="selected"<?php endif; ?>>30</option>
@@ -85,7 +85,7 @@ $numColumns = sizeof($this->getColumns());
                 <option value="100"<?php if($this->getCollection()->getPageSize()==100): ?> selected="selected"<?php endif; ?>>100</option>
                 <option value="200"<?php if($this->getCollection()->getPageSize()==200): ?> selected="selected"<?php endif; ?>>200</option>
             </select>
-            <?php echo Mage::helper('widget')->__('per page') ?><span class="separator">|</span>
+            <?php echo $this->__('per page') ?><span class="separator">|</span>
             <?php echo $this->__('Total %d records found', $this->getCollection()->getSize()) ?>
             <span id="<?php echo $this->getHtmlId() ?>-total-count" class="no-display"><?php echo $this->getCollection()->getSize() ?></span>
             <?php if($this->getRssLists()): ?>

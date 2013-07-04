@@ -441,7 +441,7 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <logo translate="label">
+                        <logo translate="label comment">
                             <label>Logo Image</label>
                             <comment>Allowed file types: jpg, jpeg, gif, png</comment>
                             <frontend_type>image</frontend_type>
@@ -794,7 +794,7 @@
                             <sort_order>27</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_store>1</show_in_store>
                             <can_be_empty>1</can_be_empty>
                         </merchant_vat_number>
                         <address translate="label">
@@ -836,7 +836,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </disable>
-                        <host translate="label">
+                        <host translate="label comment">
                             <label>Host</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>20</sort_order>
@@ -845,7 +845,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>For Windows server only.</comment>
                         </host>
-                        <port translate="label">
+                        <port translate="label comment">
                             <label>Port (25)</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>30</sort_order>
@@ -938,9 +938,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
-                            <comment>After selecting a new media storage location, press the Synchronize button
-                                to transfer all media to that location. Media will not be available in the new
-                                location until the synchronization process is complete.</comment>
+                            <comment>After selecting a new media storage location, press the Synchronize button to transfer all media to that location. Media will not be available in the new location until the synchronization process is complete.</comment>
                         </synchronize>
                         <configuration_update_time translate="label">
                             <label>Environment Update Time</label>
@@ -1160,7 +1158,7 @@
                             <show_in_store>0</show_in_store>
                             <comment><![CDATA[<strong style="color:red">Warning!</strong> When using Store Code in URLs, in some cases system may not work properly if URLs without Store Codes are specified in the third party services (e.g. PayPal etc.).]]></comment>
                         </use_store>
-                        <redirect_to_base translate="label">
+                        <redirect_to_base translate="label comment">
                             <label>Auto-redirect to Base URL</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_web_redirect</source_model>

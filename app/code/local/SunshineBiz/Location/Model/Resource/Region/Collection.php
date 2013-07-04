@@ -10,6 +10,10 @@
  */
 class SunshineBiz_Location_Model_Resource_Region_Collection extends Mage_Directory_Model_Resource_Region_Collection {
 
+    public function __construct($resource = null) {
+        parent::__construct(Mage::getResourceModel('location/region'));
+    }
+    
     protected function _construct() {
          $this->_init('location/region');
 

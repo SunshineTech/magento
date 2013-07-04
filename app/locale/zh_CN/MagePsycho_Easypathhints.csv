@@ -1,0 +1,4 @@
+"Access Code","访问代码"
+"Easy Template Path Hints","模板路径提示"
+"Enabled","启用"
+"If access code is used then you need to add query string as:<br />http://magento-url/any-page<strong>?tp=1&code=code-entered-above</strong> in order to turn on the template path hints. Else you can simply use <strong>?tp=1</strong>.<br /> Note that this technique works well both for frontend and admin part.","如果设置了“访问代码”，需要像这样访问：<br/>http://magento-url/any-page<strong>?tp=1&code=访问代码</strong><br/>才能启动“模板路径提示”。否则，你只需要使用<strong>?tp=1</strong>。<br/>注意：前端和后台都可以使用本功能。"
