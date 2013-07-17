@@ -18,7 +18,7 @@ class SunshineBiz_Location_Block_Adminhtml_Area_Grid extends SunshineBiz_Locatio
     }
 
     protected function _prepareCollection() {
-        $collection = Mage::getModel('location/area')->getCollection();;
+        $collection = Mage::getModel('location/area')->getCollection();
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }

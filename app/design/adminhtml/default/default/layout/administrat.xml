@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<layout>
+    <default>
+        <reference name="head">
+            <action method="setTemplate">
+                <template>administrat/page/head.phtml</template>
+            </action>
+            <action method="setTitle" translate="title">
+                <title>Backend Admin</title>
+            </action>
+        </reference>
+        <reference name="menu">
+            <action method="setTemplate">
+                <template>administrat/page/menu.phtml</template>
+            </action>
+        </reference>
+        <reference name="footer">
+            <action method="setTemplate">
+                <template>administrat/page/footer.phtml</template>
+            </action>
+        </reference>
+    </default>
+    
+    <adminhtml_index_login>
+        <reference name="content">
+            <action method="setTemplate">
+                <template>administrat/login.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_index_login>
+    
+    <adminhtml_index_forgotpassword>
+        <reference name="content">
+            <action method="setTemplate">
+                <template>administrat/forgotpassword.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_index_forgotpassword>
+    
+    <adminhtml_permissions_user_edit>
+        <reference name="adminhtml.permissions.user.edit.tabs">
+            <block type="administrat/adminhtml_permission_user_edit_tab_resources" name="adminhtml.permission.user.edit.tab.resources"/>
+            <action method="addTabAfter">
+                <id>resources_section</id>
+                <block>adminhtml.permission.user.edit.tab.resources</block>
+                <after>roles_section</after>
+            </action>
+        </reference>
+        <reference name="adminhtml.permissions.user.roles.grid.js">
+            <action method="setTemplate">
+                <template>administrat/permission/user_roles_grid_js.phtml</template>
+            </action>
+        </reference>
+    </adminhtml_permissions_user_edit>
+</layout>
