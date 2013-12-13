@@ -1,0 +1,36 @@
+/**
+ *
+ * @category SunshineBiz
+ * @package SocialConnect
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2013 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+
+div.socialconnect-google{    
+    height: 30px !important;
+    background: transparent url('../images/login-button-left.png') no-repeat top left !important;
+}
+
+div.socialconnect-google-inner{
+    height: 30px !important;
+    float: left !important;
+    margin-left: 30px !important;
+    background: transparent url('../images/login-button-inner.png') repeat-x top left !important;
+    padding: 0 5px !important;
+    text-shadow: 1px 1px #000000;
+}
+
+div.socialconnect-google-right{
+    float: left !important;
+    height: 30px !important;
+    width: 3px !important;
+    background: transparent url('../images/login-button-right.png') no-repeat top left !important;
+}
+
+div.socialconnect-google-inner a{
+    color: #FFFFFF !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    line-height: 30px !important;
+}

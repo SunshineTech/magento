@@ -1,0 +1,52 @@
+/**
+ *
+ * @category SunshineBiz
+ * @package SocialConnect
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2013 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+
+div.socialconnect-checkout,
+div.socialconnect-login {
+    margin-top: 28px;
+}
+
+div.socialconnect-login .content {
+    min-height: 100px;
+}
+
+div.socialconnect-checkout .socialconnect .clearer,
+div.socialconnect-login .content .clearer {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+div.socialconnect-checkout .clearer div,
+div.socialconnect-login .buttons-set div{
+    float: right;
+}
+
+div.socialconnect-checkout .socialconnect {
+    width: 100%;
+}
+
+div.socialconnect-account .col3-set .col-1 {
+    width: 29%
+}
+
+div.socialconnect-account .col3-set .col-2 {
+    width: 49%
+}
+
+div.socialconnect-account .col3-set .col-3 {
+    width: 19%
+}
+
+div.socialconnect-account .col2-set .col-1 {
+    width: 79%
+}
+
+div.socialconnect-account .col2-set .col-2 {
+    width: 19%
+}

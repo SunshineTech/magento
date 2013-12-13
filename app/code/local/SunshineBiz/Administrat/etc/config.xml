@@ -4,9 +4,6 @@
         <SunshineBiz_Administrat>
             <version>1.0.0.0.0</version>
         </SunshineBiz_Administrat>
-        <depends>
-            <Mage_Admin/>
-        </depends>
     </modules>
     <global>
         <models>

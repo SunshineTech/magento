@@ -504,6 +504,52 @@ FormElementDependenceController.prototype = {
         var shouldShowUp = true;
         for (var idFrom in valuesFrom) {
             var from = $(idFrom);
+            //add the logic of depending on multiple select 
+            //iSunshineTech <isunshinetech@gmail.com> 2013-09-29
+            var flag = false;
+            if (from) {
+                
+                var fromValues = new Array();
+                if (from.type === 'select-multiple') {
+                    var j = 0;
+                    for (i = 0; i < from.length; i++) {
+                        if (from.options[i].selected) {
+                            fromValues[j] = from.options[i].value;
+                            j++;
+                        }
+                    }
+                } else {
+                    fromValues = from.value;
+                }
+
+                if (fromValues instanceof Array) {
+                    for (i = 0; i < fromValues.length; i++) {
+                        if (valuesFrom[idFrom] instanceof Array) {
+                            if(valuesFrom[idFrom].indexOf(fromValues[i]) > -1) {
+                                flag = true;
+                                break;
+                            }                                
+                        } else {
+                            if(fromValues[i] === valuesFrom[idFrom]) {
+                                flag = true;
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    if (valuesFrom[idFrom] instanceof Array) {
+                        flag = (valuesFrom[idFrom].indexOf(fromValues) > -1);
+                    } else {
+                        flag = (fromValues === valuesFrom[idFrom]);
+                    }
+                }
+            }
+            
+            if (!from || !flag) {
+                shouldShowUp = false;
+            }
+            
+            /**
             if (valuesFrom[idFrom] instanceof Array) {
                 if (!from || valuesFrom[idFrom].indexOf(from.value) == -1) {
                     shouldShowUp = false;
@@ -512,7 +558,7 @@ FormElementDependenceController.prototype = {
                 if (!from || from.value != valuesFrom[idFrom]) {
                     shouldShowUp = false;
                 }
-            }
+            }**/
         }
 
         // toggle target row

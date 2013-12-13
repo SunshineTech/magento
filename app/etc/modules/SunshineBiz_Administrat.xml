@@ -4,6 +4,9 @@
         <SunshineBiz_Administrat>
             <active>true</active>
             <codePool>local</codePool>
+            <depends>
+                <Mage_Admin/>
+            </depends>
         </SunshineBiz_Administrat>
     </modules>
 </config>

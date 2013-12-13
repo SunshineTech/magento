@@ -1,0 +1,75 @@
+<?php
+/**
+ * @category    design
+ * @package     base_default
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2013 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<?php
+/**
+ *
+ * @var $this SunshineBiz_SocialConnect_Block_Login
+ */
+?>
+<?php
+$storeId = Mage::app()->getStore()->getId();
+$methods = $this->_methods;
+?>
+<?php if (!empty($methods)): ?>
+    <?php if (Mage::getStoreConfig('socialconnect/general/display', $storeId)): ?>
+        <?php
+        $methodCount = count($methods);
+        for ($i = 0; $i < $methodCount; $i += 2):
+            ?>
+            <div class="socialconnect-login">
+                <div class="account-login">
+                    <div class="col2-set">
+                        <div class="col-1 registered-users">
+                            <div class="content">
+                                <h2><?php echo $this->escapeHtml($methods[$i]->getTitle()) ?></h2>
+                                <p><?php echo $methods[$i]->getDescription(); ?></p>
+                            </div>
+                        </div>
+                        <?php if ($i + 1 < $methodCount): ?>
+                            <div class="col-2 registered-users">
+                                <div class="content">
+                                    <h2><?php echo $this->escapeHtml($methods[$i + 1]->getTitle()) ?></h2>
+                                    <p><?php echo $methods[$i + 1]->getDescription(); ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col2-set">            
+                        <div class="col-1">
+                            <div class="buttons-set">
+                                <?php echo $this->getMethodButtonHtml($methods[$i]); ?>
+                            </div>
+                        </div>
+                        <?php if ($i + 1 < $methodCount): ?>
+                            <div class="col-2">
+                                <div class="buttons-set">
+                                    <?php echo $this->getMethodButtonHtml($methods[$i + 1]); ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>    
+            </div>
+            <?php
+        endfor;
+    else:
+        ?>
+        <div class="socialconnect-login">
+            <div class="account-login">
+                <div class="content registered-users">
+                    <h2><?php echo $this->escapeHtml(Mage::getStoreConfig('socialconnect/general/title', $storeId)) ?></h2>                    
+                    <?php
+                    foreach ($methods as $_method)
+                        echo $this->getMethodButtonHtml($_method);
+                    ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

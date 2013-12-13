@@ -4,6 +4,9 @@
         <SunshineBiz_Location>
             <active>true</active>
             <codePool>local</codePool>
-        </SunshineBiz_Location>
+            <depends>
+                <Mage_Directory/>
+            </depends>
+        </SunshineBiz_Location>        
     </modules>
 </config>

@@ -141,6 +141,15 @@
                 </captcha>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <Mage_Captcha>
+                    <files>
+                        <default>Mage_Captcha.csv</default>
+                    </files>
+                </Mage_Captcha>
+            </modules>
+        </translate>
     </frontend>
     <admin>
         <routers>

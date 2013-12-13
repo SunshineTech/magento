@@ -6,7 +6,7 @@
 "After successfull installation please click the button below.","成功安装后请点击下面的按钮。"
 "All packages were installed, click 'OK' to continue with installation.","所有包已安装，点击“确定”继续安装。"
 "Alternatively you could try the 'Manual Downloads and Upgrades' method.","或者您可以尝试“手工下载并升级”的方法。"
-"Base URL","备份URL"
+"Base URL","基本URL"
 "Before you continue to your store, please make a note of your encryption key (Magento uses it to encrypt passwords, credit cards and more).","在继续您的店铺前，请记录您的加密密钥（Magento将其用于加密密码、信用卡号码等）。"
 "Check out our","结账指南"
 "Check this box only if it is not possible to automatically validate Secure URL, for example if HTTP authentication is required.","如果不能自动验证安全URL，例如如果需要HTTP验证，就请选择该选项。"

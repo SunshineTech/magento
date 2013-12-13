@@ -14,13 +14,20 @@
         <blocks>
             <adminhtml>  
                 <rewrite>
-                    <promo_quote_grid>SunshineBiz_Optimization_Block_Promo_Quote_Grid</promo_quote_grid>
-                    <store_switcher>SunshineBiz_Optimization_Block_Store_Switcher</store_switcher>  
-                    <widget_grid_column_renderer_massaction>SunshineBiz_Optimization_Block_Widget_Grid_Column_Renderer_Massaction</widget_grid_column_renderer_massaction>
-                    <widget_grid_column_filter_price>SunshineBiz_Optimization_Block_Widget_Grid_Column_Filter_Price</widget_grid_column_filter_price>
-                    <widget_grid_column_filter_text>SunshineBiz_Optimization_Block_Widget_Grid_Column_Filter_Text</widget_grid_column_filter_text>
+                    <promo_quote_grid>SunshineBiz_Optimization_Block_Adminhtml_Promo_Quote_Grid</promo_quote_grid>
+                    <store_switcher>SunshineBiz_Optimization_Block_Adminhtml_Store_Switcher</store_switcher>
+                    <system_config_form>SunshineBiz_Optimization_Block_Adminhtml_System_Config_Form</system_config_form>
+                    <system_config_form_field>SunshineBiz_Optimization_Block_Adminhtml_System_Config_Form_Field</system_config_form_field>                    
+                    <widget_grid_column_filter_price>SunshineBiz_Optimization_Block_Adminhtml_Widget_Grid_Column_Filter_Price</widget_grid_column_filter_price>
+                    <widget_grid_column_filter_text>SunshineBiz_Optimization_Block_Adminhtml_Widget_Grid_Column_Filter_Text</widget_grid_column_filter_text>
+                    <widget_grid_column_renderer_massaction>SunshineBiz_Optimization_Block_Adminhtml_Widget_Grid_Column_Renderer_Massaction</widget_grid_column_renderer_massaction>
                 </rewrite>  
-            </adminhtml>  
+            </adminhtml>
+            <catalog>
+                <rewrite>
+                    <product_new>SunshineBiz_Optimization_Block_Catalog_Product_New</product_new>
+                </rewrite>
+            </catalog>  
         </blocks>
     </global>
     <adminhtml>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<layout>
+    <customer_account_login>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="socialconnect/login" name="socialconnect_login" template="socialconnect/login.phtml"/>
+        </reference>
+    </customer_account_login>
+    
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="checkout.onepage.login">
+            <action method="setTemplate" >
+                <template>socialconnect/checkout/onepage/login.phtml</template>
+            </action>
+            <block type="socialconnect/login" name="socialconnect_checkout" template="socialconnect/checkout.phtml"/>
+        </reference>
+    </checkout_onepage_index>
+    
+    <customer_account>
+        <block type="socialconnect/account" name="socialconnect_account"/>
+    </customer_account>
+    
+    <socialconnect_account_google translate="label">
+        <label>Customer My Account Google Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="socialconnect">
+                <title>Google Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="socialconnect/google_account" name="socialconnect_google_account"/>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="socialconnect">
+                <path>socialconnect/account/google</path>
+            </action>
+        </reference>
+    </socialconnect_account_google>
+
+    <socialconnect_account_facebook translate="label">
+        <label>Customer My Account Facebook Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="socialconnect">
+                <title>Facebook Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="socialconnect/facebook_account" name="socialconnect_facebook_account"/>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="socialconnect">
+                <path>socialconnect/account/facebook</path>
+            </action>
+        </reference>
+    </socialconnect_account_facebook>
+    
+    <socialconnect_account_twitter translate="label">
+        <label>Customer My Account Twitter Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="socialconnect">
+                <title>Twitter Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="socialconnect/twitter_account" name="socialconnect_twitter_account"/>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="socialconnect">
+                <path>socialconnect/account/twitter</path>
+            </action>
+        </reference>
+    </socialconnect_account_twitter>
+</layout>
