@@ -10,17 +10,20 @@
  */
 abstract class SunshineBiz_SocialConnect_Block_Button extends Mage_Core_Block_Template {
 
-    protected $userInfo = null;    
+    protected $userInfo = null;
     protected $method = null;
     protected $disconnectUrl = null;
-    
-    protected function _getButtonText() {
 
+    protected function _getButtonText() {
         if (empty($this->userInfo)) {
-            return $this->method->getConnectText();
+            if (!($text = Mage::registry('sunshinetech_socialconnect_button_text'))) {
+                $text = $this->__('Connect');
+            }
         } else {
-            return $this->method->getDisconnectText();
+            $text = $this->__('Disconnect');
         }
+
+        return $text;
     }
 
     protected function _getButtonUrl() {
@@ -30,22 +33,22 @@ abstract class SunshineBiz_SocialConnect_Block_Button extends Mage_Core_Block_Te
             return $this->getUrl($this->disconnectUrl);
         }
     }
-    
+
     public function setMethod($method) {
         // CSRF protection
         $this->setCsrf($csrf = md5(uniqid(rand(), TRUE)));
         $method->setState($csrf);
-        
-        if(!($redirect = Mage::getSingleton('customer/session')->getBeforeAuthUrl())) {
-            $redirect = Mage::helper('core/url')->getCurrentUrl();      
+
+        if (!($redirect = Mage::getSingleton('customer/session')->getBeforeAuthUrl())) {
+            $redirect = Mage::helper('core/url')->getCurrentUrl();
         }
         // Redirect uri
         $this->setRedirect($redirect);
-        
+
         $this->method = $method;
     }
-    
+
     protected abstract function setCsrf($csrf);
-    
+
     protected abstract function setRedirect($redirect);
 }

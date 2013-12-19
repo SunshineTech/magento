@@ -74,10 +74,6 @@ abstract class SunshineBiz_SocialConnect_Model_Method_Abstract extends Varien_Ob
      */
     public abstract function getDescription();
     
-    public abstract function getConnectText();
-    
-    public abstract function getDisconnectText();
-    
     public abstract function createAuthUrl();
     
     public function setState($state) {

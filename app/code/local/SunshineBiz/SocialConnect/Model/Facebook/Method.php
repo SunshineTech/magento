@@ -147,16 +147,8 @@ class SunshineBiz_SocialConnect_Model_Facebook_Method extends SunshineBiz_Social
         $this->token = json_decode($token);
     }
 
-    public function getConnectText() {
-        return Mage::helper('socialconnect')->__('Connect');
-    }
-
     public function getDescription() {
-        return Mage::helper('socialconnect')->__('You can login or register using your <strong>Facebook</strong> credentials.');
-    }
-
-    public function getDisconnectText() {
-        return Mage::helper('socialconnect')->__('Disconnect');
+        return Mage::helper('socialconnect')->__('You can login using your <strong>Facebook</strong> credentials.');
     }
 
     public function getTitle() {

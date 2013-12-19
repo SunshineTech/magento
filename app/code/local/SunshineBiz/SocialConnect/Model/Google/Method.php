@@ -141,7 +141,6 @@ class SunshineBiz_SocialConnect_Model_Google_Method extends SunshineBiz_SocialCo
                 } else {
                     $message = Mage::helper('socialconnect')->__('Unspecified OAuth error occurred.');
                 }
-
                 throw new SunshineBiz_SocialConnect_GoogleOAuthException($message);
             } else {
                 $message = sprintf(
@@ -207,16 +206,8 @@ class SunshineBiz_SocialConnect_Model_Google_Method extends SunshineBiz_SocialCo
         $this->_httpRequest(self::OAUTH2_REVOKE_URI, 'POST', array('token' => $this->token->refresh_token));
     }
 
-    public function getConnectText() {
-        return Mage::helper('socialconnect')->__('Connect');
-    }
-
     public function getDescription() {
-        return Mage::helper('socialconnect')->__('You can login or register using your <strong>Google</strong> credentials.');
-    }
-
-    public function getDisconnectText() {
-        return Mage::helper('socialconnect')->__('Disconnect');
+        return Mage::helper('socialconnect')->__('You can login using your <strong>Google</strong> credentials.');
     }
 
     public function getTitle() {

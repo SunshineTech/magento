@@ -13,7 +13,8 @@ class SunshineBiz_SocialConnect_Helper_Facebook extends Mage_Core_Helper_Abstrac
     public function connectByCreatingAccount($email, $firstName, $lastName, $facebookId, $token) {
 
         $customer = Mage::getModel('customer/customer');
-        $customer->setEmail($email)
+        $customer->setWebsiteId(Mage::app()->getWebsite()->getId())
+                ->setEmail($email)
                 ->setFirstname($firstName)
                 ->setLastname($lastName)
                 ->setSocialconnectFid($facebookId)
@@ -24,7 +25,7 @@ class SunshineBiz_SocialConnect_Helper_Facebook extends Mage_Core_Helper_Abstrac
         $customer->setConfirmation(null);
         $customer->save();
 
-        $customer->sendNewAccountEmail();
+        $customer->sendNewAccountEmail('confirmed', '', Mage::app()->getStore()->getId());
 
         Mage::getSingleton('customer/session')->setCustomerAsLoggedIn($customer);
     }

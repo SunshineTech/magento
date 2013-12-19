@@ -36,7 +36,8 @@ class SunshineBiz_SocialConnect_Helper_Twitter extends Mage_Core_Helper_Abstract
             $lastName = $name[0];
         }
 
-        $customer->setEmail($email)
+        $customer->setWebsiteId(Mage::app()->getWebsite()->getId())
+                ->setEmail($email)
                 ->setFirstname($firstName)
                 ->setLastname($lastName)
                 ->setSocialconnectTid($twitterId)

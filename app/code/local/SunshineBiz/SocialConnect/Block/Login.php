@@ -11,7 +11,7 @@
 class SunshineBiz_SocialConnect_Block_Login extends Mage_Core_Block_Template {
 
     protected $_methods = null;
-
+    
     /**
      * Prepare children blocks
      */
@@ -27,7 +27,9 @@ class SunshineBiz_SocialConnect_Block_Login extends Mage_Core_Block_Template {
                     $this->helper('socialconnect')->getMethodButtonBlock($method)
             );
         }
-
+        
+        Mage::register('sunshinetech_socialconnect_button_text', $this->__('Login'));
+        
         return parent::_prepareLayout();
     }
 

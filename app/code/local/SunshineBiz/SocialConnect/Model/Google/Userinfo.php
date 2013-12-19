@@ -32,10 +32,10 @@ class SunshineBiz_SocialConnect_Model_Google_Userinfo {
                 $customer->save();
             } catch (SunshineBiz_SocialConnect_GoogleOAuthException $e) {
                 $helper->disconnect($customer);
-                Mage::getSingleton('core/session')->addNotice($e->getMessage());
+                Mage::getSingleton('core/session')->addNotice(iconv("","UTF-8",$e->getMessage()));
             } catch (Exception $e) {
                 $helper->disconnect($customer);
-                Mage::getSingleton('core/session')->addError($e->getMessage());
+                Mage::getSingleton('core/session')->addError(iconv("","UTF-8",$e->getMessage()));
             }
         }
     }
