@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SunshineBiz_Facebook>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Customer/>
+                <SunshineBiz_SocialConnect/>
+            </depends>
+        </SunshineBiz_Facebook>
+    </modules>
+</config>

@@ -63,29 +63,6 @@ class SunshineBiz_SocialConnect_Helper_Data extends Mage_Core_Helper_Abstract {
         return $block;
     }
 
-    public function getCustomersByClientId($clientIdField, $clientId) {
-
-        $customer = Mage::getModel('customer/customer');
-
-        $collection = $customer->getCollection()
-                ->addAttributeToFilter($clientIdField, $clientId)
-                ->setPageSize(1);
-
-        if ($customer->getSharingConfig()->isWebsiteScope()) {
-            $collection->addAttributeToFilter(
-                    'website_id', Mage::app()->getWebsite()->getId()
-            );
-        }
-
-        if (Mage::getSingleton('customer/session')->isLoggedIn()) {
-            $collection->addFieldToFilter(
-                    'entity_id', array('neq' => Mage::getSingleton('customer/session')->getCustomerId())
-            );
-        }
-
-        return $collection;
-    }
-
     public function loginByCustomer(Mage_Customer_Model_Customer $customer) {
         if ($customer->getConfirmation()) {
             $customer->setConfirmation(null);

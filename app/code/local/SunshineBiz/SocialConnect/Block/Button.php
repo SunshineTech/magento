@@ -10,27 +10,27 @@
  */
 abstract class SunshineBiz_SocialConnect_Block_Button extends Mage_Core_Block_Template {
 
-    protected $userInfo = null;
+    protected $customer = null;
     protected $method = null;
     protected $disconnectUrl = null;
 
     protected function _getButtonText() {
-        if (empty($this->userInfo)) {
+        if ($this->customer) {
+            $text = $this->__('Disconnect');
+        } else {
             if (!($text = Mage::registry('sunshinetech_socialconnect_button_text'))) {
                 $text = $this->__('Connect');
-            }
-        } else {
-            $text = $this->__('Disconnect');
+            }            
         }
 
         return $text;
     }
 
     protected function _getButtonUrl() {
-        if (empty($this->userInfo)) {
-            return $this->method->createAuthUrl();
+        if ($this->customer) {
+            return $this->getUrl($this->disconnectUrl);            
         } else {
-            return $this->getUrl($this->disconnectUrl);
+            return $this->method->createAuthUrl();
         }
     }
 

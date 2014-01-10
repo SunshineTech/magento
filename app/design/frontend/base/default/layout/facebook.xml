@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout>
+    <facebook_account_index translate="label">
+        <label>Customer My Account Facebook Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="socialconnect">
+                <title>Facebook Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="facebook/account" name="socialconnect_facebook_account"/>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="facebook">
+                <path>facebook/account/index</path>
+            </action>
+        </reference>
+    </facebook_account_index>
+</layout>

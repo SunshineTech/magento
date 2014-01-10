@@ -23,37 +23,3 @@
  * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-
-/* @var $installer Mage_Core_Model_Resource_Setup */
-$installer = $this;
-$installer->startSetup();
-
-/* @var $connection Varien_Db_Adapter_Pdo_Mysql */
-$connection  = $installer->getConnection();
-
-$regionTable = $installer->getTable('directory/country_region');
-
-/* Armed Forces changes based on USPS */
-
-/* Armed Forces Middle East (AM) is now served by Armed Forces Europe (AE) */
-$bind = array('code' => 'AE');
-$where = array('code = ?' => 'AM');
-
-$connection->update($regionTable, $bind, $where);
-
-/* Armed Forces Canada (AC) is now served by Armed Forces Europe (AE) */
-$bind = array('code' => 'AE');
-$where = array('code = ?' => 'AC');
-
-$connection->update($regionTable, $bind, $where);
-
-
-/* Armed Forces Africa (AF) is now served by Armed Forces Europe (AE) */
-$bind = array('code' => 'AE');
-$where = array('code = ?' => 'AF');
-
-$connection->update($regionTable, $bind, $where);
-
-
-
-$installer->endSetup();

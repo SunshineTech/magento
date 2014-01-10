@@ -64,7 +64,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <SunshineBiz_Location>SunshineBiz_Location_Adminhtml</SunshineBiz_Location>
+                        <SunshineBiz_Location before="Mage_Adminhtml">SunshineBiz_Location_Adminhtml</SunshineBiz_Location>
                     </modules>
                 </args>
             </adminhtml>

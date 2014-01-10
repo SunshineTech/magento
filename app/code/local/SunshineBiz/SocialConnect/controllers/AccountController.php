@@ -21,35 +21,4 @@ class SunshineBiz_SocialConnect_AccountController extends Mage_Core_Controller_F
             $this->setFlag('', 'no-dispatch', true);
         }
     }
-
-    public function googleAction() {
-        $userInfo = Mage::getSingleton('socialconnect/google_userinfo')->getUserInfo();
-        Mage::register('google_userinfo', $userInfo);
-
-        $this->loadLayout();
-        $this->renderLayout();
-    }
-
-    public function facebookAction() {
-        $userInfo = Mage::getSingleton('socialconnect/facebook_userinfo')->getUserInfo();
-        Mage::register('facebook_userinfo', $userInfo);
-
-        $this->loadLayout();
-        $this->renderLayout();
-    }
-
-    public function twitterAction() {
-        // Cache user info inside customer session due to Twitter window frame rate limits
-        if (!($userInfo = Mage::getSingleton('customer/session')->getSocialconnectTwitterUserinfo())) {
-            $userInfo = Mage::getSingleton('socialconnect/twitter_userinfo')->getUserInfo();
-
-            Mage::getSingleton('customer/session')->setSocialconnectTwitterUserinfo($userInfo);
-        }
-        
-        Mage::register('twitter_userinfo', $userInfo);
-        
-        $this->loadLayout();
-        $this->renderLayout();
-    }
-
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SunshineBiz_Google>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Customer/>
+                <SunshineBiz_SocialConnect/>
+            </depends>
+        </SunshineBiz_Google>
+    </modules>
+</config>

@@ -1,0 +1,67 @@
+<?php
+/**
+ *
+ * @category SunshineBiz
+ * @package SocialConnect
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2013 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<div class="socialconnect-account">
+    <div class="page-title">
+        <h1><?php echo $this->__('Google Connect') ?></h1>
+    </div>
+    <?php if($this->customer): ?>
+    <div class="col3-set">
+        <div class="box">
+            <div class="box-content">        
+                <div class="col-1">                    
+                    <?php if($this->_getPicture()): ?>
+                    <p>
+                        <img src="<?php echo $this->_getPicture(); ?>" alt="<?php echo $this->htmlEscape($this->customer->getName()); ?>" />
+                    </p>
+                    <?php endif; ?>
+                </div>
+                <div class="col-2">                          
+                    <?php if($this->_getStatus()): ?>
+                    <p>
+                        <?php printf($this->__('Connected as %s', '<strong>' . $this->_getStatus() . '</strong>')) ?>
+                    </p>
+                    <?php endif; ?>                    
+                    <p>
+                        <?php printf($this->__('Email: %s', '<strong>' . $this->customer->getEmail() . '</strong>')) ?>
+                    </p>
+                    <p>
+                        <?php printf($this->__('Google #: %s', '<strong>' . $this->customer->getId() . '</strong>')) ?>
+                    </p>
+                    <p>
+                        <?php printf($this->__('Gender: %s', '<strong>'. $this->__($this->customer->getGender()) . '</strong>')) ?>
+                    </p>
+                    <p>
+                        <?php printf($this->__('Birthday: %s', '<strong>' . $this->_getBirthday() . '</strong>')) ?>
+                    </p>
+                </div>            
+                <div class="col-3">
+                    <?php echo $this->getChildHtml('socialconnect_account_google_button'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons-set">
+        <button title="<?php echo $this->__('Refresh') ?>" type="button" class="button" onclick="setLocation('<?php echo $this->getUrl('google/connect/refresh') ?>');"><span><span><?php echo $this->__('Refresh') ?></span></span></button>
+    </div>
+    <?php else: ?>
+    <div class="col2-set">
+        <div class="box-content">
+            <div class="col-1">
+                <p>
+                    <?php echo $this->__('You can connect store account with your Google account so you could login easier in the future.') ?>
+                </p>
+            </div>
+            <div class="col-2">
+                <?php echo $this->getChildHtml('socialconnect_account_google_button'); ?>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>    
+</div>
