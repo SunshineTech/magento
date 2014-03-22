@@ -191,14 +191,14 @@
             </depends>
         </Mage_Usa>
         <Mage_Paygate>
-            <active>true</active>
+            <active>false</active>
             <codePool>core</codePool>
             <depends>
                 <Mage_Payment/>
             </depends>
         </Mage_Paygate>
         <Mage_Paypal>
-            <active>true</active>
+            <active>false</active>
             <codePool>core</codePool>
             <depends>
                 <Mage_Paygate/>
@@ -207,7 +207,7 @@
             </depends>
         </Mage_Paypal>
         <Mage_PaypalUk>
-            <active>true</active>
+            <active>false</active>
             <codePool>core</codePool>
             <depends>
                 <Mage_Paygate/>

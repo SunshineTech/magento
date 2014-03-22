@@ -33,7 +33,8 @@ class SunshineBiz_Optimization_Block_Adminhtml_System_Config_Form extends Mage_A
             // sort either by sort_order or by child node values bypassing the sort_order
             if ($group->sort_fields && $group->sort_fields->by) {
                 $fieldset->setSortElementsByAttribute(
-                        (string) $group->sort_fields->by, $group->sort_fields->direction_desc ? SORT_DESC : SORT_ASC
+                        (string) $group->sort_fields->by,
+                        $group->sort_fields->direction_desc ? SORT_DESC : SORT_ASC
                 );
             } else {
                 usort($elements, array($this, '_sortForm'));
@@ -60,7 +61,9 @@ class SunshineBiz_Optimization_Block_Adminhtml_System_Config_Form extends Mage_A
                     $groupPath = substr($path, 0, strrpos($path, '/'));
                     if (!isset($configDataAdditionalGroups[$groupPath])) {
                         $this->_configData = $this->_configDataObject->extendConfig(
-                                $groupPath, false, $this->_configData
+                                $groupPath,
+                                false,
+                                $this->_configData
                         );
                         $configDataAdditionalGroups[$groupPath] = true;
                     }

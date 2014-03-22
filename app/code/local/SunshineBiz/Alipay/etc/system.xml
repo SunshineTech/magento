@@ -1,0 +1,901 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <alipay>
+                    <label>Alipay</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <partner_id>
+                            <label>Partner ID</label>
+                            <required>true</required>
+                            <frontend_type>text</frontend_type>
+                            <comment>Unique user number of signed Alipay account. Beginning with "2088", it is compose of 16 numbers.</comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </partner_id>
+                        <security_code>
+                            <label>Private Keys</label>
+                            <required>true</required>
+                            <frontend_type>password</frontend_type>
+                            <comment><![CDATA[After logonning to <a target="_blank" href="https://b.alipay.com/">Merchant Service Center (https://b.alipay.com/)</a> and installing a digital certificate, merchants can view the private keys by clicking "Transaction Security Code" in the "Technical Services" Column.]]></comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </security_code>
+                        <seller_email>
+                            <label>Seller Email</label>
+                            <required>true</required>
+                            <frontend_type>text</frontend_type>
+                            <comment>Seller Alipay Account</comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </seller_email>
+                        <verify_ip>
+                            <label>Verify Notify IP</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </verify_ip>
+                        <notify_ips>
+                            <label>Notify IPs</label>
+                            <required>true</required>
+                            <frontend_type>text</frontend_type>
+                            <comment>Server IPs of Alipay sending notifications</comment>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <depends>
+                                <verify_ip>1</verify_ip>
+                            </depends>
+                        </notify_ips>                        
+                        <alipay_dual type="group">
+                            <label>Alipay Dual Function Transactions</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active>
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <post>
+                                    <label>Post Logistics</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <source_model>alipay/source_carriers</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </post>
+                                <express>
+                                    <label>Express Logistics</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <source_model>alipay/source_carriers</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </express>
+                                <ems>
+                                    <label>EMS Logistics</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>40</sort_order>
+                                    <source_model>alipay/source_carriers</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </ems>
+                                <support_custom_timeout>
+                                    <label>Has Configured to Support Custom Timeout</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </support_custom_timeout>                                                        
+                                <allow_refund_time>
+                                    <label>Allow Refund Time</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[The deadline of allowing buyer to refund when seller fails to delivery.<br/>Its unit is d that means day. For example: 7d]]></comment>
+                                    <sort_order>60</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </allow_refund_time>
+                                <suggest_refund_time>
+                                    <label>Suggest Refund Time</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[The deadline of suggesting buyer to refund when seller fails to delivery.<br/>Its unit is d that means day. For example: 7d]]></comment>
+                                    <sort_order>70</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </suggest_refund_time>
+                                <post_receipt_timeout>
+                                    <label>POST Receipt Timeout</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[The deadline of completing automatically the (post) transaction when buyer fails to confirm receipt.<br/>Its unit is d that means day. For example: 7d]]></comment>
+                                    <sort_order>80</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </post_receipt_timeout>
+                                <pay_timeout>
+                                    <label>Pay Timeout</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[Set unpaid transaction timeout, once timeout, the transaction will automatically be closed.<br/>The range of values is 1m-15d, where m is replace of minute, h is replace of hour, d is replace of day, and 1c is the replace of that day. Its number part must be interger.]]></comment>
+                                    <sort_order>90</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </pay_timeout>
+                                <antiphishing_timestamp_verify>
+                                    <label>Antiphishing Timestamp Verify</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>100</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </antiphishing_timestamp_verify>                                
+                                <allowspecific>
+                                    <label>Payment from Applicable Countries</label>
+                                    <frontend_type>allowspecific</frontend_type>
+                                    <sort_order>110</sort_order>
+                                    <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>                            
+                                </allowspecific>
+                                <specificcountry>
+                                    <label>Payment from Specific Countries</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>120</sort_order>
+                                    <source_model>adminhtml/system_config_source_country</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                        <allowspecific>1</allowspecific>
+                                    </depends>                            
+                                </specificcountry>
+                                <min_order_total>
+                                    <label>Minimum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>130</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </min_order_total>
+                                <max_order_total>
+                                    <label>Maximum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>140</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </max_order_total>
+                                <sort_order>
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>150</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </sort_order>
+                            </fields>                    
+                        </alipay_dual>
+                        <alipay_secured type="group">
+                            <label>Alipay Secured Transactions</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active>
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <post>
+                                    <label>Post Logistics</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>20</sort_order>
+                                    <source_model>alipay/source_carriers</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </post>
+                                <express>
+                                    <label>Express Logistics</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>30</sort_order>
+                                    <source_model>alipay/source_carriers</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </express>
+                                <ems>
+                                    <label>EMS Logistics</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>40</sort_order>
+                                    <source_model>alipay/source_carriers</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </ems>
+                                <support_custom_timeout>
+                                    <label>Has Configured to Support Custom Timeout</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </support_custom_timeout>                                
+                                <allow_refund_time>
+                                    <label>Allow Refund Time</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[The deadline of allowing buyer to refund when seller fails to delivery.<br/>Its unit is d that means day. For example: 7d]]></comment>
+                                    <sort_order>60</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </allow_refund_time>
+                                <suggest_refund_time>
+                                    <label>Suggest Refund Time</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[The deadline of suggesting buyer to refund when seller fails to delivery.<br/>Its unit is d that means day. For example: 7d]]></comment>
+                                    <sort_order>70</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </suggest_refund_time>
+                                <post_receipt_timeout>
+                                    <label>POST Receipt Timeout</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[The deadline of completing automatically the (post) transaction when buyer fails to confirm receipt.<br/>Its unit is d that means day. For example: 7d]]></comment>
+                                    <sort_order>80</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </post_receipt_timeout>
+                                <pay_timeout>
+                                    <label>Pay Timeout</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[Set unpaid transaction timeout, once timeout, the transaction will automatically be closed.<br/>The range of values is 1m-15d, where m is replace of minute, h is replace of hour, d is replace of day, and 1c is the replace of that day. Its number part must be interger.]]></comment>
+                                    <sort_order>95</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </pay_timeout>                                
+                                <allowspecific>
+                                    <label>Payment from Applicable Countries</label>
+                                    <frontend_type>allowspecific</frontend_type>
+                                    <sort_order>100</sort_order>
+                                    <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>                            
+                                </allowspecific>
+                                <specificcountry>
+                                    <label>Payment from Specific Countries</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>110</sort_order>
+                                    <source_model>adminhtml/system_config_source_country</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                        <allowspecific>1</allowspecific>
+                                    </depends>                            
+                                </specificcountry>
+                                <min_order_total>
+                                    <label>Minimum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>120</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </min_order_total>
+                                <max_order_total>
+                                    <label>Maximum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>130</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </max_order_total>
+                                <sort_order>
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>140</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </sort_order>
+                            </fields>
+                        </alipay_secured>
+                        <alipay_instant type="group">
+                            <label>Alipay Instant Credit Transactions</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active>
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>5</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <error_notify>
+                                    <label>Has Opened the Function of Request Error Notification</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </error_notify>
+                                <credit_pay>
+                                    <label>Has Opened the Function of Credit Pay</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>14</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </credit_pay>
+                                <pay_method>
+                                    <label>Default Pay Method</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>alipay/source_method</source_model>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <credit_pay>1</credit_pay>
+                                    </depends>
+                                </pay_method>
+                                <ctu_check>
+                                    <label>Has Configured to Support CTU Check Permissions</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>CTU is Alipay risk audit system.</comment>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </ctu_check>
+                                <need_ctu_check>
+                                    <label>Need CTU Check</label>
+                                    <frontend_type>select</frontend_type>                            
+                                    <source_model>alipay/source_checkctu</source_model>
+                                    <comment>Do transactions need CTU check?</comment>
+                                    <sort_order>25</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <ctu_check>1</ctu_check>
+                                    </depends>
+                                </need_ctu_check>
+                                <antiphishing_timestamp_verify>
+                                    <label>Has Opened the Function of Antiphishing Timestamp Verify</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </antiphishing_timestamp_verify>
+                                <antiphishing_ip_check>
+                                    <label>Has Opened the Function of Antiphishing IP Check</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>35</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </antiphishing_ip_check>
+                                <client_ip>
+                                    <label>Website IP</label>
+                                    <required>true</required>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>40</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                        <antiphishing_ip_check>1</antiphishing_ip_check>
+                                    </depends>
+                                </client_ip>
+                                <support_custom_timeout>
+                                    <label>Has Configured to Support Custom Timeout</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>45</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </support_custom_timeout>
+                                <pay_timeout>
+                                    <label>Pay Timeout</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[Set unpaid transaction timeout, once timeout, the transaction will automatically be closed.<br/>The range of values is 1m-15d, where m is replace of minute, h is replace of hour, d is replace of day, and 1c is the replace of that day. Its number part must be interger.]]></comment>
+                                    <sort_order>50</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </pay_timeout>
+                                <allowspecific>
+                                    <label>Payment from Applicable Countries</label>
+                                    <frontend_type>allowspecific</frontend_type>
+                                    <sort_order>100</sort_order>
+                                    <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>                            
+                                </allowspecific>
+                                <specificcountry>
+                                    <label>Payment from Specific Countries</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>110</sort_order>
+                                    <source_model>adminhtml/system_config_source_country</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                        <allowspecific>1</allowspecific>
+                                    </depends>                            
+                                </specificcountry>
+                                <min_order_total>
+                                    <label>Minimum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>120</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </min_order_total>
+                                <max_order_total>
+                                    <label>Maximum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>130</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </max_order_total>
+                                <sort_order>
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>140</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </sort_order>
+                            </fields>
+                        </alipay_instant>
+                        <alipay_bank type="group">
+                            <label>Internet Banking Payment</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[<strong><font color="red">Note</font></strong> It can be signed and enabled only after <strong>Alipay Instant Credit Transactions</strong> have been successful sign.]]></comment>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <fields>
+                                <active>
+                                    <label>Enabled</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <sort_order>5</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                </active>
+                                <error_notify>
+                                    <label>Has Opened the Function of Request Error Notification</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>10</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </error_notify>
+                                <ctu_check>
+                                    <label>Has Configured to Support CTU Check Permissions</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>CTU is Alipay risk audit system.</comment>
+                                    <sort_order>15</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </ctu_check>
+                                <need_ctu_check>
+                                    <label>Need CTU Check</label>
+                                    <frontend_type>select</frontend_type>                            
+                                    <source_model>alipay/source_checkctu</source_model>
+                                    <comment>Do transactions need CTU check?</comment>
+                                    <sort_order>20</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <ctu_check>1</ctu_check>
+                                    </depends>
+                                </need_ctu_check>
+                                <antiphishing_timestamp_verify>
+                                    <label>Has Opened the Function of Antiphishing Timestamp Verify</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>25</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </antiphishing_timestamp_verify>
+                                <antiphishing_ip_check>
+                                    <label>Has Opened the Function of Antiphishing IP Check</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>30</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </antiphishing_ip_check>
+                                <client_ip>
+                                    <label>Website IP</label>
+                                    <required>true</required>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>35</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                        <antiphishing_ip_check>1</antiphishing_ip_check>
+                                    </depends>
+                                </client_ip>
+                                <support_custom_timeout>
+                                    <label>Has Configured to Support Custom Timeout</label>
+                                    <frontend_type>select</frontend_type>
+                                    <source_model>adminhtml/system_config_source_yesno</source_model>
+                                    <comment>This function need to contact Alipay to open.</comment>
+                                    <sort_order>40</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </support_custom_timeout>
+                                <pay_timeout>
+                                    <label>Pay Timeout</label>
+                                    <frontend_type>text</frontend_type>
+                                    <comment><![CDATA[Set unpaid transaction timeout, once timeout, the transaction will automatically be closed.<br/>The range of values is 1m-15d, where m is replace of minute, h is replace of hour, d is replace of day, and 1c is the replace of that day. Its number part must be interger.]]></comment>
+                                    <sort_order>45</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                        <support_custom_timeout>1</support_custom_timeout>
+                                    </depends>
+                                </pay_timeout>
+                                <allowspecific>
+                                    <label>Payment from Applicable Countries</label>
+                                    <frontend_type>allowspecific</frontend_type>
+                                    <sort_order>90</sort_order>
+                                    <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>                            
+                                </allowspecific>
+                                <specificcountry>
+                                    <label>Payment from Specific Countries</label>
+                                    <frontend_type>multiselect</frontend_type>
+                                    <sort_order>100</sort_order>
+                                    <source_model>adminhtml/system_config_source_country</source_model>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <can_be_empty>1</can_be_empty>
+                                    <depends>
+                                        <active>1</active>
+                                        <allowspecific>1</allowspecific>
+                                    </depends>                            
+                                </specificcountry>
+                                <min_order_total>
+                                    <label>Minimum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>110</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </min_order_total>
+                                <max_order_total>
+                                    <label>Maximum Order Total</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>120</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </max_order_total>
+                                <sort_order>
+                                    <label>Sort Order</label>
+                                    <frontend_type>text</frontend_type>
+                                    <sort_order>130</sort_order>
+                                    <show_in_default>1</show_in_default>
+                                    <show_in_website>1</show_in_website>
+                                    <show_in_store>1</show_in_store>
+                                    <depends>
+                                        <active>1</active>
+                                    </depends>
+                                </sort_order>
+                            </fields>
+                        </alipay_bank>
+                    </fields>
+                </alipay>
+            </groups>
+        </payment>
+        <socialconnect>
+            <groups>
+                <alipay>
+                    <label>Alipay</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active>
+                            <label>Active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <client_id>
+                            <label>Partner ID</label>
+                            <required>true</required>
+                            <frontend_type>text</frontend_type>
+                            <comment>Unique user number of signed Alipay account. Beginning with "2088", it is compose of 16 numbers.</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </client_id>
+                        <client_secret>
+                            <label>Private Keys</label>
+                            <required>true</required>
+                            <frontend_type>password</frontend_type>
+                            <comment><![CDATA[After logonning to <a target="_blank" href="https://b.alipay.com/">Merchant Service Center (https://b.alipay.com/)</a> and installing a digital certificate, merchants can view the private keys by clicking "Transaction Security Code" in the "Technical Services" Column.]]></comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </client_secret>                        
+                        <antiphishing_ip_check>
+                            <label>Antiphishing IP Check</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </antiphishing_ip_check>
+                        <client_ip>
+                            <label>Website IP</label>
+                            <required>true</required>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <antiphishing_ip_check>1</antiphishing_ip_check>
+                            </depends>
+                        </client_ip>
+                        <antiphishing_timestamp_verify>
+                            <label>Antiphishing Timestamp Verify</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </antiphishing_timestamp_verify>
+                        <sort_order>
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </sort_order>
+                    </fields>
+                </alipay>
+            </groups>
+        </socialconnect>
+    </sections>
+</config>

@@ -9,6 +9,8 @@
  * @copyright   Copyright (c) 2013 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
  */
 class SunshineBiz_SocialConnect_Helper_Data extends Mage_Core_Helper_Abstract {
+    
+    const XML_PATH_METHODS = 'socialconnect';
 
     /**
      * Get and sort available SocialConnect methods for specified or current store
@@ -20,18 +22,27 @@ class SunshineBiz_SocialConnect_Helper_Data extends Mage_Core_Helper_Abstract {
      */
     public function getStoreMethods() {
         $res = array();
-        $storeId = Mage::app()->getStore()->getId();
-        foreach (Mage::getStoreConfig('socialconnect', $storeId) as $code => $methodConfig) {
-            if (Mage::getStoreConfigFlag('socialconnect/' . $code . '/active', $storeId)) {
-                if (array_key_exists('model', $methodConfig)) {
-                    $methodModel = Mage::getModel($methodConfig['model']);
-                    if ($methodModel && $methodModel->getConfigData('active')) {
-                        $sortOrder = (int) $methodModel->getConfigData('sort_order');
-                        $methodModel->setSortOrder($sortOrder);
-                        $res[] = $methodModel;
-                    }
-                }
+        $store = Mage::app()->getStore();
+        foreach (Mage::getStoreConfig(self::XML_PATH_METHODS, $store) as $code => $methodConfig) {
+            $prefix = self::XML_PATH_METHODS . '/' . $code . '/';
+            if (!$model = Mage::getStoreConfig($prefix . 'model', $store)) {
+                continue;
             }
+            
+            $methodInstance = Mage::getModel($model);
+            if (!$methodInstance) {
+                continue;
+            }
+            
+             $methodInstance->setStore($store);
+            if (!$methodInstance->isAvailable()) {
+                /* if the method cannot be used at this time */
+                continue;
+            }
+            
+            $sortOrder = (int)$methodInstance->getConfigData('sort_order');
+            $methodInstance->setSortOrder($sortOrder);
+            $res[] = $methodInstance;
         }
 
         usort($res, array($this, '_sortMethods'));
@@ -121,7 +132,8 @@ class SunshineBiz_SocialConnect_Helper_Data extends Mage_Core_Helper_Abstract {
         $frontController->getResponse()->setHeader('Status','404 File not found');
         
         $pageId = Mage::getStoreConfig('web/default/cms_no_route');
-        if (!Mage::helper('cms/page')->renderPage($frontController, $pageId))
-                $frontController->_forward('defaultNoRoute');
+        if (!Mage::helper('cms/page')->renderPage($frontController, $pageId)) {
+            $frontController->_forward('defaultNoRoute');
+        }                
     }
 }

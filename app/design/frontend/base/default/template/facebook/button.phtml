@@ -8,9 +8,9 @@
  */
 ?>
 <div class="clearer">
-    <div class="socialconnect-facebook">
+    <div class="socialconnect-facebook" onclick="document.getElementById('facebook-href').click();" onmouseover="document.getElementById('facebook-href').focus();" onmouseout="document.getElementById('facebook-href').blur();">
         <div class="socialconnect-facebook-inner">
-            <a href="<?php echo $this->escapeUrl($this->_getButtonUrl()); ?>"><?php echo $this->_getButtonText(); ?></a>
+            <a id="facebook-href" href="<?php echo $this->escapeUrl($this->_getButtonUrl()); ?>"><?php echo $this->_getButtonText(); ?></a>
         </div>
         <div class="socialconnect-facebook-right"></div>
     </div>

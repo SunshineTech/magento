@@ -129,8 +129,11 @@ class SunshineBiz_Google_Model_Method extends SunshineBiz_SocialConnect_Model_Me
                 throw new Exception(Mage::helper('socialconnect')->__('Required HTTP method is not supported.'));
         }
 
-        $response = $client->request($method);
-
+        try {
+            $response = $client->request($method);
+        } catch (Exception $e) {
+            throw new Exception(iconv("", "UTF-8", $e->getMessage()));
+        }
         $decoded_response = json_decode($response->getBody());
 
         if ($response->isError()) {
@@ -162,7 +165,6 @@ class SunshineBiz_Google_Model_Method extends SunshineBiz_SocialConnect_Model_Me
     }
 
     protected function refreshAccessToken() {
-        Mage::log($this->token);
         if (empty($this->token->refresh_token)) {
             throw new Exception(Mage::helper('socialconnect')->__('No refresh token, unable to refresh access token.'));
         }

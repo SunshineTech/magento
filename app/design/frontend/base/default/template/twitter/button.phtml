@@ -8,9 +8,9 @@
  */
 ?>
 <div class="clearer">
-    <div class="socialconnect-twitter">
+    <div class="socialconnect-twitter" onclick="document.getElementById('twitter-href').click();" onmouseover="document.getElementById('twitter-href').focus();" onmouseout="document.getElementById('twitter-href').blur();">
         <div class="socialconnect-twitter-inner">
-            <a href="<?php echo $this->escapeUrl($this->_getButtonUrl()); ?>"><?php echo $this->_getButtonText(); ?></a>
+            <a id="twitter-href" href="<?php echo $this->escapeUrl($this->_getButtonUrl()); ?>"><?php echo $this->_getButtonText(); ?></a>
         </div>
         <div class="socialconnect-twitter-right"></div>
     </div>

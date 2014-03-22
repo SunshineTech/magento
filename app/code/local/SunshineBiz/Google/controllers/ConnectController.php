@@ -13,6 +13,9 @@ class SunshineBiz_Google_ConnectController extends Mage_Core_Controller_Front_Ac
     protected $referer = null;
 
     public function connectAction() {
+        if (!(Mage::getSingleton('google/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
 
         try {
             $this->_connectCallback();
@@ -28,6 +31,9 @@ class SunshineBiz_Google_ConnectController extends Mage_Core_Controller_Front_Ac
     }
 
     public function disconnectAction() {
+        if (!(Mage::getSingleton('google/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
 
         $customer = Mage::getSingleton('customer/session')->getCustomer();
         try {
@@ -44,6 +50,9 @@ class SunshineBiz_Google_ConnectController extends Mage_Core_Controller_Front_Ac
     }
 
     public function refreshAction() {
+        if (!(Mage::getSingleton('google/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
 
         $googleCustomer = Mage::getModel('google/customer')
                 ->getCollection()

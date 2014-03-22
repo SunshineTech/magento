@@ -1023,7 +1023,7 @@ tr.summary-details-excluded { font-style:italic; }
 .block-progress dd.complete { background-color:#f6f6f6; }
 
 .opc { border-bottom:1px solid #ddd; position:relative; }
-.opc li.section { border:1px solid #ddd; border-bottom:0; }
+.opc li.section { float: left; width: 16%; height:600px; }
 
 .opc .buttons-set.disabled button.button { display:none; }
 .opc .buttons-set .please-wait { height:21px; line-height:21px; }
@@ -1040,7 +1040,7 @@ tr.summary-details-excluded { font-style:italic; }
 .opc .active .step-title { background-color:#ccc; cursor:default; }
 /*.opc .active .step-title a { display:none; }*/
 
-.opc .step { border-top:1px solid #ddd; padding:10px; position:relative; }
+.opc .step { border-top:1px solid #ddd; padding:10px; position:absolute; left:0px; width: 623px; }
 .opc .step .tool-tip { right:10px; }
 
 .opc .order-review {}

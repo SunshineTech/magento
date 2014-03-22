@@ -20,7 +20,7 @@ class SunshineBiz_Optimization_Block_Adminhtml_System_Config_Form_Field extends 
         $id = $element->getHtmlId();
 
         $html = '<td class="label"><label for="' . $id . '">' . $element->getLabel() 
-                . ( $element->getRequired() ? ' <span class="required">*</span>' : '' ) . '</label></td>'; //add <required></required> label
+                . ( $element->getRequired() ? '<span class="required">*</span>' : '' ) . '</label></td>'; //add <required></required> label
         
         //$isDefault = !$this->getRequest()->getParam('website') && !$this->getRequest()->getParam('store');
         $isMultiple = $element->getExtType()==='multiple';

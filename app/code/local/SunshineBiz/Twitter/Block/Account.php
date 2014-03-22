@@ -14,16 +14,11 @@ class SunshineBiz_Twitter_Block_Account extends Mage_Core_Block_Template {
 
     protected function _prepareLayout() {
 
-        $method = Mage::getSingleton('twitter/method');
-        if (!($method->isActive())) {
-            return;
-        }
-
         $this->customer = Mage::registry('twitter_customer');
 
         $this->setChild(
                 'socialconnect_account_twitter_button', 
-                $this->helper('socialconnect')->getMethodButtonBlock($method)
+                $this->helper('socialconnect')->getMethodButtonBlock(Mage::getSingleton('twitter/method'))
         );
 
         $this->setTemplate('twitter/account.phtml');

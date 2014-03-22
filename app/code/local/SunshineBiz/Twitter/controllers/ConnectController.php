@@ -14,6 +14,10 @@ class SunshineBiz_Twitter_ConnectController extends Mage_Core_Controller_Front_A
 
     public function connectAction() {
 
+        if (!(Mage::getSingleton('twitter/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
+        
         try {
             $this->_connectCallback();
         } catch (Exception $e) {
@@ -28,6 +32,11 @@ class SunshineBiz_Twitter_ConnectController extends Mage_Core_Controller_Front_A
     }
 
     public function disconnectAction() {
+        
+        if (!(Mage::getSingleton('twitter/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
+        
         $customer = Mage::getSingleton('customer/session')->getCustomer();
 
         try {
@@ -44,6 +53,9 @@ class SunshineBiz_Twitter_ConnectController extends Mage_Core_Controller_Front_A
     }
 
     public function refreshAction() {
+        if (!(Mage::getSingleton('twitter/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
         // Cache user info inside customer session due to Twitter window frame rate limits
         if (!Mage::getSingleton('customer/session')->getTwitterCustomer()) {
             $twitterCustomer = Mage::getModel('twitter/customer')
@@ -79,8 +91,8 @@ class SunshineBiz_Twitter_ConnectController extends Mage_Core_Controller_Front_A
 
     public function requestAction() {
         $method = Mage::getSingleton('twitter/method');
-        if (!($method->isActive())) {
-            Mage::helper('socialconnect')->redirect404($this);
+        if (!($method->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
         }
 
         $method->fetchRequestToken();

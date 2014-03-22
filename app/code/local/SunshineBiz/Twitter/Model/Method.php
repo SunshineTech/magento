@@ -121,7 +121,11 @@ class SunshineBiz_Twitter_Model_Method extends SunshineBiz_SocialConnect_Model_M
                 throw new Exception(Mage::helper('socialconnect')->__('Required HTTP method is not supported.'));
         }
 
-        $response = $client->request();
+        try {
+            $response = $client->request($method);
+        } catch (Exception $e) {
+            throw new Exception(iconv("", "UTF-8", $e->getMessage()));
+        }
         $decoded_response = json_decode($response->getBody());
 
         if ($response->isError()) {

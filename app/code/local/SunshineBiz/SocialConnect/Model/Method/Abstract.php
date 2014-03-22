@@ -12,8 +12,6 @@ abstract class SunshineBiz_SocialConnect_Model_Method_Abstract extends Varien_Ob
     protected $_code;
     protected $_buttonBlockType = 'socialconnect/button';
     protected $_accountUrl = null;
-
-
     protected $state = '';
 
     /**
@@ -37,7 +35,7 @@ abstract class SunshineBiz_SocialConnect_Model_Method_Abstract extends Varien_Ob
 
         return $this->_code;
     }
-    
+
     public function getAccountUrl() {
         if (empty($this->_accountUrl)) {
             Mage::throwException(Mage::helper('socialconnect')->__('Cannot retrieve the SocialConnect method account url.'));
@@ -53,34 +51,51 @@ abstract class SunshineBiz_SocialConnect_Model_Method_Abstract extends Varien_Ob
      *
      * @return mixed
      */
-    public function getConfigData($field) {
-        
+    public function getConfigData($field, $storeId = null) {
+        if (null === $storeId) {
+            $storeId = $this->getStore();
+        }
         $path = 'socialconnect/' . $this->getCode() . '/' . $field;
         
-        return Mage::getStoreConfig($path, Mage::app()->getStore()->getId());
+        return Mage::getStoreConfig($path, $storeId);
     }
 
-     /**
+    /**
      * Retrieve method title
      *
      * @return string
      */
     public abstract function getTitle();
-    
+
     /**
      * Retrieve method description
      *
      * @return string
      */
     public abstract function getDescription();
-    
+
     public abstract function createAuthUrl();
-    
+
     public function setState($state) {
         $this->state = $state;
     }
-    
-    public function isActive() {
-        return $this->getConfigData('active');
+
+    public function isAvailable($store = null) {
+        if (null === $store) {
+            $store = $this->getStore();
+        }
+        
+        $checkResult = new StdClass;
+        $isActive = (bool) (int) $this->getConfigData('active', $store);
+        $checkResult->isAvailable = $isActive;
+        $checkResult->isDeniedInConfig = !$isActive; // for future use in observers
+        Mage::dispatchEvent('socialconnect_method_is_active', array(
+            'result' => $checkResult,
+            'method_instance' => $this,
+            '$store' => $store,
+        ));
+
+        return $checkResult->isAvailable;
     }
+
 }

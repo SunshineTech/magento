@@ -12,13 +12,18 @@ include_once("SunshineBiz/SocialConnect/controllers/AccountController.php");
 
 class SunshineBiz_Google_AccountController extends SunshineBiz_SocialConnect_AccountController {
 
-    public function indexAction() {
+    public function indexAction() {        
+        if (!(Mage::getSingleton('google/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
+        
         $googleCustomer = Mage::getModel('google/customer')
                 ->getCollection()
                 ->addFieldToFilter('customer_id', Mage::getSingleton('customer/session')->getCustomer()->getId())
                 ->getFirstItem();
-        if($googleCustomer->getId())
+        if($googleCustomer->getId()) {
             Mage::register('google_customer', $googleCustomer);
+        }            
 
         $this->loadLayout();
         $this->renderLayout();

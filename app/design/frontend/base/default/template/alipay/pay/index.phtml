@@ -1,0 +1,72 @@
+<?php
+/**
+ *
+ * @category SunshineBiz
+ * @package SocialConnect
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2014 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<?php
+$_order = Mage::registry('order');
+?>
+<div>
+    <div class="page-title">
+        <h1><?php echo $this->__('Alipay Payment') ?></h1>
+    </div>
+    <ul class="opc">
+        <li class="active">
+            <div class="step-title">
+                <h2><?php echo $this->__('Order Info') ?></h2>
+            </div>
+            <div class="step a-item" style="position: relative; width: inherit;">
+                <div class="col2-set">
+                    <div class="col-1">
+                        <h4><?php echo $this->__('Order No: %s', $_order->getRealOrderId()) ?></h4>
+                        <p><a href="<?php echo $_order->getCustomerIsGuest() ? $this->getUrl('sales/guest/form') : $this->getUrl('sales/order/view', array('order_id' => $_order->getId())); ?>" target="_blank"><?php echo $this->__('View Order Info') ?>&gt;&gt;</a></p>
+                    </div>
+                    <div class="col-2">
+                        <h4><?php echo $this->__('Order Amount') ?></h4>
+                        <h4 style="color: red"><?php echo $this->helper('checkout')->formatPrice($_order->getGrandTotal()) ?></h4>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="active">
+            <div class="step-title">
+                <h2><?php echo $this->__('Payment Info') ?></h2>
+            </div>
+            <div class="step a-item" style="position: relative; width: inherit;">
+                <div class="col2-set">
+                    <div class="col-1">
+                        <h4><?php echo $this->__('Payment Method :') ?></h4>
+                        <?php echo $this->getChildHtml('payment_info') ?>
+                    </div>
+                    <div class="col-2">
+                        <button title="<?php echo $this->__('Pay At Once') ?>" class="button btn-checkout" onclick="setLocation('<?php echo $this->getUrl('alipay/pay/redirect'); ?>');"><span><span><?php echo $this->__('Pay At Once') ?></span></span></button>
+                        <p><strong><?php echo $this->__('After clicking the button, you will be redirected to %s.', $_order->getPayment()->getMethod() == 'alipay_bank' ? $this->__('Internet Banking') : $this->__('Alipay')) ?></strong></p>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="active">
+            <div class="step a-item" style="position: relative; width: inherit;">
+                <?php if ($_order->getPayment()->getMethod() == 'alipay_bank'): ?>
+                    <div>
+                        <h4 style="color:red;"><?php echo $this->__('Prompt') ?></h4>
+                        <p><?php echo $this->__('Internet Banking Payment service of this website is in cooperation with Alipay, so it is security when mall\'s name is displayed as "Alipay Compay" on the specific Internet Banking page. Please use the service trustingly!') ?></p>
+                    </div>
+                <?php endif; ?>
+                <div>
+                    <h4 style="color:red;"><?php echo $this->__('When Payment Encounter Problems') ?></h4>
+                    <p><?php echo $this->__('Please <a href="%s" target="_blank">Contact Us</a>, or visit <a href="http://help.alipay.com/lab/index.htm" target="_blank">Alipay Help Center&nbsp;&gt;&gt;</a>.', $this->getUrl('contacts')) ?></p>
+                </div>
+                <div>
+                    <h4 style="color:red;"><?php echo $this->__('About Alipay') ?></h4>
+                    <p><?php echo $this->__('Alipay is one of our partners.') ?></p>
+                    <p><img src="<?php echo $this->getSkinUrl('alipay/pay/images/alipay.jpg'); ?>" alt="<?php echo $this->__('Alipay') ?>" /><?php echo $this->__('Launched in 2004, Alipay (www.alipay.com) is a commonly used third-party online payment solution in China. Alipay provides an escrow payment service that reduces transaction risk for online consumers. Shoppers have the ability to verify whether they are happy with goods before releasing funds to the seller.') ?></p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

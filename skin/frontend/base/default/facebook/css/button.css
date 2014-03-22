@@ -9,6 +9,7 @@
 div.socialconnect-facebook{    
     height: 30px !important;
     background: transparent url('../images/login-button-left.png') no-repeat top left !important;
+    cursor: pointer;
 }
 
 div.socialconnect-facebook-inner{

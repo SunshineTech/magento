@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SunshineBiz_Checkout>
+            <version>1.0.0.0</version>
+        </SunshineBiz_Checkout>
+    </modules>
+    <frontend>
+        <routers>
+            <checkout>
+                <args>
+                    <modules>
+                        <SunshineBiz_Checkout before="Mage_Checkout">SunshineBiz_Checkout</SunshineBiz_Checkout>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+    </frontend>
+</config>

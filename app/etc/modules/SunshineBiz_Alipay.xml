@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SunshineBiz_Alipay>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment/>
+                <Mage_Customer/>
+                <SunshineBiz_SocialConnect/>
+            </depends>
+        </SunshineBiz_Alipay>
+    </modules>
+</config>

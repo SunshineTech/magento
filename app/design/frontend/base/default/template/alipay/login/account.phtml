@@ -1,0 +1,85 @@
+<?php
+/**
+ *
+ * @category SunshineBiz
+ * @package SocialConnect
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2013 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<div class="socialconnect-account">
+    <div class="page-title">
+        <h1><?php echo $this->__('Alipay Quick Login') ?></h1>
+    </div>
+    <?php if($this->customer): ?>
+    <?php
+        $status = 'Valid';
+        if($this->customer->getExpiredTime() < time()) {
+            $status = 'Invalid';
+        }
+    ?>
+    <div class="col3-set">
+        <div class="box">
+            <div class="box-content">        
+                <div class="col-2">                          
+                    <p>
+                        <?php printf($this->__('User ID: %s', '<strong>' . $this->customer->getId() . '</strong>')) ?>
+                    </p>
+                    <p>
+                        <?php printf($this->__('User Name: %s', '<strong>' . $this->customer->getName() . '</strong>')) ?>
+                    </p>
+                    <p>
+                        <?php printf($this->__('User Account: %s', '<strong>' . $this->customer->getEmail() . '</strong>')) ?>
+                    </p>
+                    <?php if($this->customer->getUserGrade()): ?>
+                    <p>
+                        <?php printf($this->__('User Grade: %s', '<strong>' . $this->__($this->customer->getUserGrade()) . '</strong>')) ?>
+                    </p>
+                    <?php endif; ?>
+                    <p>
+                        <?php
+                            $type = 'Gold account is not active.';
+                            if($this->customer->getGradeType()) {
+                                $type = 'Gold account has been activated.';
+                            }
+                            printf($this->__('User Grade Type: %s', '<strong>'.$this->__($type).'</strong>')) 
+                        ?>
+                    </p>
+                    <?php if($this->customer->getGmtDecay()): ?>
+                    <p>
+                        <?php printf($this->__('User Grade Decay Time: %s', '<strong>' . $this->customer->getGmtDecay() . '</strong>')) ?>
+                    </p>
+                    <?php endif; ?>
+                    <p>
+                        <?php
+                            printf($this->__('Status of Pay with No Login: %s', '<strong>' . $this->__($status) . '</strong>'));                            
+                        ?>
+                    </p>
+                </div>            
+                <div class="col-3">
+                    <?php
+                        if($status == 'Invalid')
+                            echo $this->getChildHtml('socialconnect_account_alipay_button'); 
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons-set">
+        <button title="<?php echo $this->__('Delete') ?>" type="button" class="button" onclick="setLocation('<?php echo $this->getUrl('alipay/login/disconnect') ?>');"><span><span><?php echo $this->__('Delete') ?></span></span></button>
+    </div>
+    <?php else: ?>
+    <div class="col2-set">
+        <div class="box-content">
+            <div class="col-1">
+                <p>
+                    <?php echo $this->__('You can connect store account with your Alipay account so you could login easier in the future.') ?>
+                </p>
+            </div>
+            <div class="col-2" style="width: 21%">
+                <?php echo $this->getChildHtml('socialconnect_account_alipay_button'); ?>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>    
+</div>

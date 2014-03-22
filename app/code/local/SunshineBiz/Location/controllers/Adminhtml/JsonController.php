@@ -7,6 +7,7 @@
  * @author     iSunshineTech <isunshinetech@gmail.com>
  * @copyright   Copyright (c) 2013 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
  */
+require_once 'Mage/Adminhtml/controllers/JsonController.php';
 class SunshineBiz_Location_Adminhtml_JsonController extends Mage_Adminhtml_JsonController {
 
     public function regionAreaAction() {

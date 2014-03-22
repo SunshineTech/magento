@@ -13,6 +13,9 @@ class SunshineBiz_Facebook_ConnectController extends Mage_Core_Controller_Front_
     protected $referer = null;
 
     public function connectAction() {
+        if (!(Mage::getSingleton('facebook/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
 
         try {
             $this->_connectCallback();
@@ -28,6 +31,9 @@ class SunshineBiz_Facebook_ConnectController extends Mage_Core_Controller_Front_
     }
 
     public function disconnectAction() {
+        if (!(Mage::getSingleton('facebook/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
 
         $customer = Mage::getSingleton('customer/session')->getCustomer();
         try {
@@ -44,6 +50,9 @@ class SunshineBiz_Facebook_ConnectController extends Mage_Core_Controller_Front_
     }
     
     public function refreshAction() {
+        if (!(Mage::getSingleton('facebook/method')->isAvailable())) {
+            return Mage::helper('socialconnect')->redirect404($this);
+        }
         
         $facebookCustomer = Mage::getModel('facebook/customer')
                 ->getCollection()

@@ -207,7 +207,7 @@ class Mage_Payment_Helper_Data extends Mage_Core_Helper_Abstract
                 $methods[$code] = $data['title'];
             } else {
                 if ($this->getMethodInstance($code)) {
-                    $methods[$code] = $this->getMethodInstance($code)->getConfigData('title', $store);
+                    $methods[$code] = $this->getMethodInstance($code)->getTitle();
                 }
             }
             if ($asLabelValue && $withGroups && isset($data['group'])) {

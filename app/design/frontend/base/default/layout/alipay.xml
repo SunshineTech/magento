@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<layout>
+    <alipay_account_login translate="label">
+        <label>Customer My Account Alipay Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="socialconnect">
+                <title>Alipay Quick Login</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="alipay/login_account" name="socialconnect_alipay_account"/>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="alipay">
+                <path>alipay/account/login</path>
+            </action>
+        </reference>
+    </alipay_account_login>
+    
+    <alipay_pay_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="alipay/pay_index" name="payment" as="payment"  before="*">
+                <block type="alipay/pay_info_container" name="payment_info">
+                    <action method="setInfoTemplate"><method></method><template></template></action>
+                </block>
+            </block>
+        </reference>
+    </alipay_pay_index>
+</layout>
