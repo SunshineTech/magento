@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SunshineBiz_Admin>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Admin/>
+            </depends>
+        </SunshineBiz_Admin>
+    </modules>
+</config>

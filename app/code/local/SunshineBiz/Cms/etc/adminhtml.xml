@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <media>
+                    <title>Medias</title>
+                    <action>adminhtml/media</action>
+                    <sort_order>15</sort_order>
+                </media>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <media>
+                                <title>Medias</title>
+                                <sort_order>15</sort_order>
+                            </media>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

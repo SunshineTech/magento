@@ -36,6 +36,15 @@
                 </xmllinks>
             </updates>
         </layout>
+        <translate>
+            <modules>
+                <MagePsycho_Xmllinks>
+                    <files>
+                        <default>MagePsycho_Xmllinks.csv</default>
+                    </files>
+                </MagePsycho_Xmllinks>
+            </modules>
+        </translate>
     </frontend>
     <adminhtml>
         <translate>

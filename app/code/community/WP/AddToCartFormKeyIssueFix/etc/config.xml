@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <WP_AddToCartFormKeyIssueFix>
+            <version>1.0.0</version>
+        </WP_AddToCartFormKeyIssueFix>
+    </modules>
+    <global>
+        <models>
+            <wpaddtocartformkeyissuefix>
+                <class>WP_AddToCartFormKeyIssueFix_Model</class>
+            </wpaddtocartformkeyissuefix>
+        </models>
+        <events>
+            <controller_action_predispatch_checkout_cart_add>
+                <observers>
+                    <wpaddtocartformkeyissuefix_add_to_cart_before>
+                        <type>singleton</type>
+                        <class>wpaddtocartformkeyissuefix/checkout_observer</class>
+                        <method>formKeyFix</method>
+                    </wpaddtocartformkeyissuefix_add_to_cart_before>
+                </observers>
+            </controller_action_predispatch_checkout_cart_add>
+        </events>
+    </global>
+</config>

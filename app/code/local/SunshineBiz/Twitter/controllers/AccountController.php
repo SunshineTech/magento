@@ -8,7 +8,7 @@
  * @author     iSunshineTech <isunshinetech@gmail.com>
  * @copyright   Copyright (c) 2014 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
  */
-include_once("SunshineBiz/SocialConnect/controllers/AccountController.php");
+require_once 'SunshineBiz/SocialConnect/controllers/AccountController.php';
 
 class SunshineBiz_Twitter_AccountController extends SunshineBiz_SocialConnect_AccountController {
 

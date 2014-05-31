@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout>
+    <twitter_account_index translate="label">
+        <label>Customer My Account Twitter Connect</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="socialconnect">
+                <title>Twitter Connect</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>sunshinebiz/socialconnect/css/styles.css</name>
+            </action>
+        </reference>
+        <reference name="my.account.wrapper">
+            <block type="twitter/account" name="socialconnect_twitter_account"/>
+        </reference>
+        <reference name="customer_account_navigation">
+            <action method="setActive" module="twitter">
+                <path>twitter/account/index</path>
+            </action>
+        </reference>
+    </twitter_account_index>
+</layout>

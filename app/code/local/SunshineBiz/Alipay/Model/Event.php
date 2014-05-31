@@ -92,7 +92,7 @@ class SunshineBiz_Alipay_Model_Event {
      */
     protected function _validateEventData($fullCheck = true) {
         // get request variables
-        $params = $this->_eventData;Mage::log(empty($params["sign_type"]));
+        $params = $this->_eventData;
         if (empty($params) || empty($params["sign_type"]) || empty($params["sign"]) || empty($params["notify_id"]) || empty($params["trade_status"]) || empty($params["trade_no"]) || empty($params["out_trade_no"])) {
             Mage::throwException('Invalid Request.');
         }

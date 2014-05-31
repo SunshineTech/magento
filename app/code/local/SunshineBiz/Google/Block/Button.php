@@ -17,9 +17,9 @@ class SunshineBiz_Google_Block_Button extends SunshineBiz_SocialConnect_Block_Bu
         $this->disconnectUrl = 'google/connect/disconnect';
         
         $head = Mage::app()->getLayout()->getBlock('head');
-        $head->addItem('skin_css', 'google/css/button.css');
+        $head->addItem('skin_css', 'sunshinebiz/google/css/button.css');
      
-        $this->setTemplate('google/button.phtml');
+        $this->setTemplate('sunshinebiz/google/button.phtml');
     }
     
     protected function setCsrf($csrf) {

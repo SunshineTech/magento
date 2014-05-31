@@ -13,7 +13,7 @@ class SunshineBiz_Sales_Block_Order_Recent extends Mage_Sales_Block_Order_Recent
     public function _construct() {
         parent::_construct();
         
-        $this->setTemplate('sunshinebiz_sales/order/recent.phtml');
+        $this->setTemplate('sunshinebiz/sales/order/recent.phtml');
     }
 
     public function getPayUrl($order) {

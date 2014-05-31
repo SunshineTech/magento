@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<layout>
+    <adminhtml_media_index>
+        <reference name="content">
+            <block type="sunshinebiz_cms/adminhtml_media" name="adminhtml.media.index"/>
+        </reference>
+    </adminhtml_media_index>
+    
+    <adminhtml_media_edit>
+        <reference name="content">
+            <block type="sunshinebiz_cms/adminhtml_media_edit" name="adminhtml.media.edit" />
+        </reference>
+    </adminhtml_media_edit>
+</layout>

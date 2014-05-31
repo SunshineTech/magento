@@ -13,7 +13,7 @@ class SunshineBiz_Alipay_Block_Pay_Form_Bank extends Mage_Payment_Block_Form {
     protected function _construct() {
         parent::_construct();
 
-        $this->setTemplate('alipay/pay/form/bank.phtml');
+        $this->setTemplate('sunshinebiz/alipay/pay/form/bank.phtml');
     }
 
 }

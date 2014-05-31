@@ -12,7 +12,7 @@ class SunshineBiz_Sales_Block_Order_History extends Mage_Sales_Block_Order_Histo
 
     public function __construct() {
         parent::__construct();
-        $this->setTemplate('sunshinebiz_sales/order/history.phtml');
+        $this->setTemplate('sunshinebiz/sales/order/history.phtml');
 
         $orders = Mage::getResourceModel('sales/order_collection')
                 ->addFieldToSelect('*')

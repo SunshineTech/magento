@@ -17,13 +17,13 @@ class SunshineBiz_Alipay_Block_Pay_Index extends Mage_Core_Block_Template {
     protected function _prepareLayout() {
         if($this->isMultishipping()) {
             if ($this->buttonDisplayable()) {
-                $this->getLayout()->getBlock('head')->addCss('socialconnect/css/styles.css');
+                $this->getLayout()->getBlock('head')->addCss('sunshinebiz/socialconnect/css/styles.css');
                 $this->setChild('alipay_quik_login_button', $this->helper('socialconnect')->getMethodButtonBlock(Mage::getSingleton('alipay/login')));
             }
             
-            $this->setTemplate('alipay/pay/multishipping.phtml');
+            $this->setTemplate('sunshinebiz/alipay/pay/multishipping.phtml');
         } else {
-            $this->setTemplate('alipay/pay/index.phtml');
+            $this->setTemplate('sunshinebiz/alipay/pay/index.phtml');
         }
         
         return parent::_prepareLayout();

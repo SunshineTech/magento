@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <remove name="left.permanent.callout"/>
+        <remove name="right.permanent.callout"/>
+    </default>
+    
+    <catalog_category_default>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/sunshinebiz/catalog/quickview.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/sunshinebiz/catalog/quickview.js</name>
+            </action>
+        </reference>
+        <reference name="product_list">
+            <action method="setTemplate"><template>sunshinebiz/catalog/product/list.phtml</template></action>
+        </reference>
+    </catalog_category_default>
+    
+    <catalog_category_layered>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/sunshinebiz/catalog/quickview.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/sunshinebiz/catalog/quickview.js</name>
+            </action>
+        </reference>
+        <reference name="product_list">
+            <action method="setTemplate"><template>sunshinebiz/catalog/product/list.phtml</template></action>
+        </reference>
+    </catalog_category_layered>
+</layout>

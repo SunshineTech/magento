@@ -73,7 +73,7 @@ class SunshineBiz_Location_Model_Resource_Area_Collection extends SunshineBiz_Lo
             }
         }
 
-        if (count($this->_options) > 0 && $emptyLabel !== false) {
+        if ($emptyLabel !== false) {
             if(!$emptyLabel)
                 $emptyLabel = Mage::helper('core')->__('-- Please Select --');
             

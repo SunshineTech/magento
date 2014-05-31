@@ -10,42 +10,24 @@
 <?php $_next = $this->getNextProduct(); ?>
 
 <?php if($_prev || $_next): ?>
-<div style="margin: 0 0 20px;">
-    <div style="float: left">
+<div style="margin: 0 0 20px; display: table; width: 100%">
+    <div style="float: left;">
+    <?php if($_prev): ?>            
+        <a rel="prev" onmousemove="document.getElementById('pre-img').style.display = '';" onmouseout="document.getElementById('pre-img').style.display = 'none';" class="product-prev left" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">&laquo; <?php echo Mage::helper('inchoo_prevnext')->__('Previous') ?>&nbsp;<?php echo $this->escapeHtml($_prev->getName()); ?></a>
+    <?php endif; ?>
+    </div>
+    <div style="display: table-cell; width: 120px;">
         <?php if($_prev): ?>
-        <a rel="prev" onmousemove="document.getElementById('pre-img').style.display = '';" onmouseout="document.getElementById('pre-img').style.display = 'none';" class="product-prev left" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">&laquo; <?php echo Mage::helper('inchoo_prevnext')->__('Previous') ?></a>&nbsp;
-        <?php echo $this->escapeHtml($_prev->getName()); ?>
-        <img id="pre-img" style="display: none;" src="<?php echo $this->helper('catalog/image')->init($_prev, 'small_image')->resize(120, 150); ?>" width="120" height="150" alt="<?php echo $this->escapeHtml($_prev->getName()); ?>" />
+        <img id="pre-img" style="display: none; position: absolute;" src="<?php echo $this->helper('catalog/image')->init($_prev, 'small_image')->resize(120, 150); ?>" width="120" height="150" alt="<?php echo $this->escapeHtml($_prev->getName()); ?>" />
         <?php endif; ?>
-    </div>
-    <div style="float: right">
         <?php if($_next): ?>
-        <a rel="next" onmousemove="document.getElementById('next-img').style.display = '';" onmouseout="document.getElementById('next-img').style.display = 'none';" class="product-next right" title="<?php echo $this->escapeHtml($_next->getName()); ?>" href="<?php echo $_next->getProductUrl(); ?>"><?php echo Mage::helper('inchoo_prevnext')->__('Next') ?> &raquo;</a>
-        <img id="next-img" style="display: none;" src="<?php echo $this->helper('catalog/image')->init($_next, 'small_image')->resize(120,150); ?>" width="120" height="150" alt="<?php echo $this->escapeHtml($_next->getName()); ?>" />
-            <?php echo $this->escapeHtml($_next->getName()); ?>&nbsp;
+        <img id="next-img" style="display: none; position: absolute;" src="<?php echo $this->helper('catalog/image')->init($_next, 'small_image')->resize(120,150); ?>" width="120" height="150" alt="<?php echo $this->escapeHtml($_next->getName()); ?>" />       
         <?php endif; ?>
-    </div>
-    <!--
-    <?php if($_prev): ?>
-        <div class="inchoo_prevnext_prev">
-            <div class="inchoo_prevnext_link"><a rel="prev" class="product-prev left" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>">&laquo; <?php echo Mage::helper('inchoo_prevnext')->__('Previous') ?></a></div>
-            <div class="inchoo_prevnext_img_txt_wrapper">
-                <div class="inchoo_prevnext_txt"><?php echo $this->escapeHtml($_prev->getName()); ?></div>
-                <div class="inchoo_prevnext_img"><a rel="prev" class="product-prev left" title="<?php echo $this->escapeHtml($_prev->getName()); ?>" href="<?php echo $_prev->getProductUrl(); ?>"><img src="<?php echo $this->helper('catalog/image')->init($_prev, 'small_image')->resize(120, 150); ?>" width="120" height="150" alt="<?php echo $this->escapeHtml($_prev->getName()); ?>" /></a></div>
-            </div>
-
-        </div><?php /* #inchoo_prevnext_prev */ ?>
-    <?php endif; ?>
-
+    </div> 
+    <div style="float: right;">
     <?php if($_next): ?>
-        <div class="inchoo_prevnext_next">
-            <div class="inchoo_prevnext_link"><a rel="next" class="product-next right" title="<?php echo $this->escapeHtml($_next->getName()); ?>" href="<?php echo $_next->getProductUrl(); ?>"><?php echo Mage::helper('inchoo_prevnext')->__('Next') ?> &raquo;</a></div>
-            <div class="inchoo_prevnext_img_txt_wrapper">
-                <div class="inchoo_prevnext_txt"><?php echo $this->escapeHtml($_next->getName()); ?></div>
-                <div class="inchoo_prevnext_img"><a rel="next" class="product-next right" title="<?php echo $this->escapeHtml($_next->getName()); ?>" href="<?php echo $_next->getProductUrl(); ?>"><img src="<?php echo $this->helper('catalog/image')->init($_next, 'small_image')->resize(120,150); ?>" width="120" height="150" alt="<?php echo $this->escapeHtml($_next->getName()); ?>" /></a></div>
-            </div>
-        </div><?php /* #inchoo_prevnext_next */ ?>
+        <a rel="next" onmousemove="document.getElementById('next-img').style.display = '';" onmouseout="document.getElementById('next-img').style.display = 'none';" class="product-next right" title="<?php echo $this->escapeHtml($_next->getName()); ?>" href="<?php echo $_next->getProductUrl(); ?>"><?php echo $this->escapeHtml($_next->getName()); ?>&nbsp;<?php echo Mage::helper('inchoo_prevnext')->__('Next') ?> &raquo;</a>
     <?php endif; ?>
-    -->
+    </div>       
 </div>
-<?php endif; ?>
+<?php endif;

@@ -15,4 +15,8 @@ class SunshineBiz_Location_Block_Adminhtml_Widget_Form_Container extends Mage_Ad
         parent::__construct();
         $this->_helper = Mage::helper('location');
     }
+    
+    public function getSaveUrl() {
+        return $this->getUrl('*/*/save');
+    }
 }

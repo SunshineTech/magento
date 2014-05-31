@@ -73,7 +73,7 @@ class Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Select extends Mage_Adminht
         $value = $this->getValue();
         foreach ($this->_getOptions() as $option){
             if (is_array($option['value'])) {
-                $html .= '<optgroup label="' . $this->escapeHtml(isset($option['label']) ? $option['label'] : '') . '">';
+                $html .= '<optgroup label="' . $this->escapeHtml($option['label']) . '">';
                 foreach ($option['value'] as $subOption) {
                     $html .= $this->_renderOption($subOption, $value);
                 }

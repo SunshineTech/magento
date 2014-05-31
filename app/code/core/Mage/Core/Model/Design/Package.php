@@ -521,7 +521,7 @@ class Mage_Core_Model_Design_Package
      * @param string|bool $fullPath
      * @return array
      */
-    private function _listDirectories($path, $fullPath = false)
+    protected function _listDirectories($path, $fullPath = false)
     {
         $result = array();
         $dir = opendir($path);

@@ -1,0 +1,58 @@
+<?php
+/**
+ *
+ * @category SunshineBiz
+ * @package Cms
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2014 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<?php if (($_medias = $this->getMedias())): ?>
+<?php if(count($_medias) > 1): ?>
+    <div id="slider">
+        <div class="slidercontrolwr">
+            <div class="slidercontrol">
+                <?php $i=1; foreach ($_medias as $_media): ?>
+                <a href="#section<?php echo $i; ?>" title="<?php echo $_media->getTitle(); ?>" class=""><?php echo $i++; ?></a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="scroller">
+            <div class="content">
+                <?php $i=1; foreach ($_medias as $_media): ?>
+                <div class="sectionslide" id="section<?php echo $i++; ?>">
+                    <?php if(($linkUrl = $_media->getUrl())): ?>
+                    <a href="<?php echo strtolower(substr($linkUrl,0,4))==='http' ? $linkUrl : $this->getUrl($linkUrl); ?>"<?php if(($target = $_media->getTarget())): ?> target="<?php echo $target; ?>"<?php endif; ?>>
+                    <?php endif; ?>
+                    <img src="<?php echo Mage::getBaseUrl('media') . $_media->getSrc(); ?>" alt="<?php echo $_media->getTitle(); ?>" />
+                    <?php if($_media->getUrl()): ?>
+                    </a>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        var my_glider = new Glider('slider', {duration: 0.5, autoGlide: true, frequency: 4, initialSection: 'section1'});
+    </script>
+<?php else: ?>
+    <div id="slider" style="height: inherit;">
+        <div class="scroller">
+            <div class="content">
+                <?php $i=1; foreach ($_medias as $_media): ?>
+                <div class="sectionslide" id="section<?php echo $i++; ?>">
+                    <?php if(($linkUrl = $_media->getUrl())): ?>
+                    <a href="<?php echo strtolower(substr($linkUrl,0,4))==='http' ? $linkUrl : $this->getUrl($linkUrl); ?>"<?php if(($target = $_media->getTarget())): ?> target="<?php echo $target; ?>"<?php endif; ?>>
+                    <?php endif; ?>
+                    <img src="<?php echo Mage::getBaseUrl('media') . $_media->getSrc(); ?>" alt="<?php echo $_media->getTitle(); ?>" />
+                    <?php if($_media->getUrl()): ?>
+                    </a>
+                    <?php endif; ?>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<?php endif; ?>

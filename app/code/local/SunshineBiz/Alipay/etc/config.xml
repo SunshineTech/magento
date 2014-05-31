@@ -85,7 +85,7 @@
         <layout>
             <updates>
                 <alipay>
-                    <file>alipay.xml</file>
+                    <file>sunshinebiz/alipay.xml</file>
                 </alipay>
             </updates>
         </layout>

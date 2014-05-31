@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <design>
+            <groups>
+                <header>
+                    <fields>
+                        <logo_src>
+                            <comment>Allowed file types: PNG, GIF, JPG, JPEG, APNG, SVG. Not all browsers support all these formats!</comment>
+                            <frontend_type>logo</frontend_type>                            
+                            <backend_model>sunshinebiz_adminhtml/system_Config_backend_image_logo</backend_model>
+                            <base_url type="skin" scope_info="1">images/logo</base_url>
+                        </logo_src>
+                    </fields>
+                </header>
+            </groups>
+        </design>
+    </sections>
+</config>

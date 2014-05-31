@@ -12,25 +12,25 @@
  * string Extra class of outermost list items
  * string If specified wraps children list in div with this class
  */
-$_menu = $this->renderCategoriesMenuHtml(0, 'level-top') ?>
-<?php if ($_menu): ?>
-    <div class="nav-container">
-        <ul id="nav">
-            <?php
-            $storeId = Mage::app()->getStore()->getId();
-            if (Mage::getStoreConfig('design/homepage/display', $storeId)):
-                $homeLabel = Mage::getStoreConfig('design/homepage/label', $storeId);
-                if(!$homeLabel)
-                    $homeLabel = $this->__('Home');
-                $isHomeActive = trim($this->helper('core/url')->getCurrentUrl(), '/') == trim(Mage::getUrl(), '/') ? ' active' : null;
-                ?>
-                <li class="first<?php echo $isHomeActive; ?>">
-                    <a href="<?php echo Mage::getUrl(); ?>" class="">
-                        <span><?php echo $homeLabel; ?></span>
-                    </a>
-                </li>
-            <?php endif; ?>
-            <?php echo $_menu; ?>
-        </ul>
-    </div>
-<?php endif ?>
+?>
+
+<div class="nav-container">
+    <ul id="nav">
+        <?php
+        if (Mage::getStoreConfig('design/homepage/display')):
+            $homeLabel = Mage::getStoreConfig('design/homepage/label');
+            if (!$homeLabel) {
+                $homeLabel = Mage::helper('xmllinks')->__('Home');
+            }                
+            $isHomeActive = trim($this->helper('core/url')->getCurrentUrl(), '/') == trim(Mage::getUrl(), '/') ? ' active' : null;
+            ?>
+            <li class="first<?php echo $isHomeActive; ?>">
+                <a href="<?php echo Mage::getUrl(); ?>" class="">
+                    <span><?php echo $homeLabel; ?></span>
+                </a>
+            </li>
+        <?php endif; ?>
+        <?php echo $this->renderCategoriesMenuHtml(0, 'level-top'); ?>
+    </ul>
+</div>
+

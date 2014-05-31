@@ -1,0 +1,26 @@
+
+<?php $platforms = Mage::helper('themeswitcher')->getPlatforms() ?>
+<?php $count = 1 ?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Platform information') ?></h4>
+	</div>
+	<div class="fieldset">
+		<table cellspacing="0" class="form-list">
+            <tbody>
+		  <?php if(count($platforms)): ?>
+			<?php foreach($platforms as $platform): ?>
+            <tr>
+				<td class="label"><label for="title"><?php echo $count++ ?>. <?php echo $platform['name'] ?></label></td>
+				<td class="value">
+					<a href="<?php echo $platform['url']?>"><?php echo $platform['url']?></a>
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		  <?php endif; ?>
+			</tbody>
+		</table>
+	</div>
+</div>
+		
+	

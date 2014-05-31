@@ -60,7 +60,7 @@
         <layout>
             <updates>
                 <facebook>
-                    <file>facebook.xml</file>
+                    <file>sunshinebiz/facebook.xml</file>
                 </facebook>
             </updates>
         </layout>

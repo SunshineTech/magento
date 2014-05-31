@@ -1,0 +1,86 @@
+<?php $_code = $this->getMethodCode() ?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display: none;">
+    <li class="control">
+        <div class="input-box">
+            <input type="checkbox" title="<?php echo $this->__('Pay Other') ?>" class="checkbox" id="<?php echo $_code ?>_pay_other" name="payment[pay_other]" value="1"<?php if ($this->getInfoData('pay_other')): ?> checked="checked"<?php endif; ?> onclick='void function() {
+                        var payOther = document.getElementById("<?php echo $_code ?>_pay_other");
+                        var payMode = document.getElementById("<?php echo $_code ?>_pay_other_mode");
+                        var mothodFields = document.getElementById("<?php echo $_code ?>_method_fields");
+                        if (payOther.checked) {
+                            payMode.style.display = "";
+                            mothodFields.style.display = "none";
+                        } else {
+                            payMode.style.display = "none";
+                            mothodFields.style.display = "";
+                        }
+                    }();'/>
+        </div>
+        <label for="<?php echo $_code ?>_pay_other"><?php echo $this->__('Pay Other') ?></label>
+    </li>
+    <li id="<?php echo $_code ?>_pay_other_mode" style="display: none;">
+        <ul>
+            <li>
+                <label for="<?php echo $_code ?>_pay_other_mode_select" class="required"><em>*</em><?php echo $this->__('Pay Other Mode') ?></label>
+                <div class="input-box">
+                    <select id="<?php echo $_code ?>_pay_other_mode_select" name="payment[pay_other_mode]" title="<?php echo $this->__('Pay Other Mode') ?>" class="required-entry" onchange='void function() {
+                        var payOtherMode = document.getElementById("<?php echo $_code ?>_pay_other_mode_select").value;
+                        var friendPay = document.getElementById("<?php echo $_code ?>_friend_pay");
+                        var paymentLink = document.getElementById("<?php echo $_code ?>_payment_link");
+                        switch (payOtherMode) {
+                            case "FRIEND_PAY":
+                                friendPay.style.display = "";
+                                paymentLink.style.display = "none";
+                                break;
+                            case "PAYMENT_LINK":
+                                friendPay.style.display = "none";
+                                paymentLink.style.display = "";
+                                break;
+                            default:
+                                friendPay.style.display = "none";
+                                paymentLink.style.display = "none";
+                        }
+                    }();'>
+                                <?php
+                                $_payOtherMode = $this->getInfoData('pay_other_mode');
+                                $payOtherModes = Mage::getModel('payother/source_modes')->toOptionArray();
+                                foreach ($payOtherModes as $value => $label):
+                                    ?>
+                            <option value="<?php echo $value ?>"<?php if ($_payOtherMode == $value): ?> selected="selected"<?php endif ?>><?php echo $label ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </li>
+            <li id="<?php echo $_code ?>_friend_pay" style="display: none;">
+                <ul>
+                    <li>
+                        <span><?php echo $this->__('<strong>Note:</strong> Your friend will receive the email of paying after you place order.') ?></span>
+                    </li>
+                    <li>                        
+                        <label for="<?php echo $_code ?>_friend_email" class="required"><em>*</em><?php echo $this->__("Friend's Email") ?></label>
+                        <div class="input-box">
+                            <input type="text" title="<?php echo $this->__("Friend's Email") ?>" class="input-text required-entry" id="<?php echo $_code ?>_friend_email" name="payment[friend_email]" value="<?php echo $this->escapeHtml($this->getInfoData('friend_email')) ?>" />
+                        </div>
+                    </li>
+                    <li>
+                        <label for="<?php echo $_code ?>_message"><?php echo $this->helper('payother')->__("Message") ?></label>
+                        <div class="input-box">
+                            <textarea maxlength="70" placeholder="<?php echo $this->__('Optional, it can be thanks, can be baby, begging, etc.'); ?>" title="<?php echo $this->helper('otherspay')->__("Message") ?>" class="textarea" id="<?php echo $_code ?>_message" name="payment[message]"><?php echo $this->escapeHtml($this->getInfoData('message')) ?></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li id="<?php echo $_code ?>_payment_link" style="display: none;">
+                <span><?php echo $this->__('<strong>Note:</strong> You can see a link of paying after you place order. By sending the link to your friend, you can ask to help you pay.') ?></span>
+            </li>
+        </ul>
+    </li>
+    <li id="<?php echo $_code ?>_method_fields" style="">
+        <ul>
+            <?php
+            if (($html = $this->getPayMethodFormHtml())) {
+                echo $html;
+            }
+            ?>
+        </ul>
+    </li>
+</ul>

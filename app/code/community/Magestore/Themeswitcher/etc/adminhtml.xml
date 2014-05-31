@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <system>
+            <children>
+                <design>
+                    <children>
+                        <design translate="title">
+                            <title>Store Theme</title>
+                            <action>adminhtml/system_design</action>
+                            <sort_order>30</sort_order>
+                        </design>
+                        <themeswitcher translate="title" module="themeswitcher">
+                            <title>Device Theme</title>                            
+                            <action>adminhtml/themeswitcher</action>
+                            <sort_order>40</sort_order>
+                        </themeswitcher>
+                    </children>
+                </design>                
+            </children>
+        </system>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>            
+                        <children>
+                            <design>
+                                <children>
+                                    <design translate="title">
+                                        <title>Store Theme</title>
+                                        <sort_order>30</sort_order>
+                                    </design>
+                                    <themeswitcher translate="title">
+                                        <title>Device Theme</title>
+                                        <sort_order>40</sort_order>
+                                    </themeswitcher>
+                                </children>
+                            </design>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

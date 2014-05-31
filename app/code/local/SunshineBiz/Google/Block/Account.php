@@ -20,7 +20,7 @@ class SunshineBiz_Google_Block_Account extends Mage_Core_Block_Template {
                 'socialconnect_account_google_button', $this->helper('socialconnect')->getMethodButtonBlock(Mage::getSingleton('google/method'))
         );
 
-        $this->setTemplate('google/account.phtml');
+        $this->setTemplate('sunshinebiz/google/account.phtml');
 
         return parent::_prepareLayout();
     }

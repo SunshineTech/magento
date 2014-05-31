@@ -1,0 +1,26 @@
+
+<?php $browsers = Mage::helper('themeswitcher')->getBrowsers() ?>
+<?php $count = 1 ?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Browser information') ?></h4>
+	</div>
+	<div class="fieldset">
+		<table cellspacing="0" class="form-list">
+            <tbody>
+		  <?php if(count($browsers)): ?>
+			<?php foreach($browsers as $browser): ?>
+            <tr>
+				<td class="label"><label for="title"><?php echo $count++ ?>. <?php echo $browser['name'] ?></label></td>
+				<td class="value">
+					<a href="<?php echo $browser['url']?>"><?php echo $browser['url']?></a>
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		  <?php endif; ?>
+			</tbody>
+		</table>
+	</div>
+</div>
+		
+	

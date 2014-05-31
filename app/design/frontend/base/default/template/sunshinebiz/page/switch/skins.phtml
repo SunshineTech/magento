@@ -1,0 +1,24 @@
+<?php
+/**
+ *
+ * @category SunshineBiz
+ * @package Page
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2014 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<?php
+$skins = $this->getSkins();
+if (count($skins) > 1): ?>
+    <div class="form-skin">
+        <ul class="skin-wrapper">
+        <?php foreach ($skins as $skin => $imageUrl): ?>
+            <li>
+                <a href="<?php echo $this->getCurrentUrl($skin) ?>">
+                    <img height="18" width="20" src="<?php echo $imageUrl ?>"/>
+                </a>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

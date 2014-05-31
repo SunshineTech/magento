@@ -1,0 +1,185 @@
+<?php
+/**
+ *
+ * @category SunshineBiz
+ * @package SocialConnect
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2014 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<style type="text/css">
+    .bank_item {
+        float: left;
+        width: 150px;
+    }
+    .bank_select input {
+        float: left;
+        height: 36px;
+        line-height: 36px;
+    }
+    .ABC, .BJBANK, .BJRCB, .BOC, .CCB, .CDCB, .CEB, .CIB, .CITIC, .CMB, .CMBC, .COMM, .FDB, .GDB, .HZCB, .ICBC, .NBBANK, .PSBC, .SHBANK, .SHRCB, .SPABANK, .SPDB, .WZCB {text-indent: -9999px; background-image: url(<?php echo $this->getSkinUrl('sunshinebiz/alipay/payment/images/banks.png'); ?>);} 
+    .ABC {background-position: 0px -0px; } 
+    .BJBANK {background-position: 0px -36px; } 
+    .BJRCB {background-position: 0px -72px; } 
+    .BOC {background-position: 0px -108px; } 
+    .CCB {background-position: 0px -144px; } 
+    .CDCB {background-position: 0px -180px; } 
+    .CEB {background-position: 0px -216px; } 
+    .CIB {background-position: 0px -252px; } 
+    .CITIC {background-position: 0px -288px; } 
+    .CMB {background-position: 0px -324px; } 
+    .CMBC {background-position: 0px -360px; } 
+    .COMM {background-position: 0px -396px; } 
+    .FDB {background-position: 0px -432px; } 
+    .GDB {background-position: 0px -468px; } 
+    .HZCB {background-position: 0px -504px; } 
+    .ICBC {background-position: 0px -540px; } 
+    .NBBANK {background-position: 0px -576px; } 
+    .PSBC {background-position: 0px -612px; } 
+    .SHBANK {background-position: 0px -648px; } 
+    .SHRCB {background-position: 0px -684px; } 
+    .SPABANK {background-position: 0px -720px; } 
+    .SPDB {background-position: 0px -756px; } 
+    .WZCB {background-position: 0px -792px; }
+    .VISA {
+        text-indent: -9999px;
+        background-image: url(<?php echo $this->getSkinUrl('sunshinebiz/alipay/pay/images/visa.png'); ?>);
+    }
+    .MASTER {
+        text-indent: -9999px;
+        background-image: url(<?php echo $this->getSkinUrl('sunshinebiz/alipay/pay/images/master.png'); ?>);
+    }
+    .icon {
+        display: block;
+        height: 36px;
+        line-height: 30px;
+        background-repeat: no-repeat;
+        padding: 0 10px;
+        color: #07f;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+    }
+</style>
+<?php
+$left = '';
+if($this->getAction()->getFullActionName() == 'checkout_multishipping_billing') {
+    $left = ' left: -60px;';
+}
+$_code = $this->getMethodCode();
+$_bank = Mage::getModel("alipay/source_bank")->getBank($this->getInfoData('payment_bank'));
+?>
+<ul class="form-list opc" id="payment_form_<?php echo $_code ?>" style="display:none; margin-bottom: 330px;">
+    <li>
+        <label class="required"><em>*</em><?php echo $this->__('Please select a payment bank (Free Fee)') ?></label>
+    </li>
+    <li class="section" style="height: 300px; width: 30%">
+        <div id="debit_title" class="step-title" style="margin-left: 3px; margin-right: 5px;">
+            <h2><?php echo $this->__('Personal Banking (Debit Card)') ?></h2>
+        </div>
+        <div id="debit_banks" class="step a-item" style="padding: 10px 10px; width: 601px;<?php echo $left ?>">
+            <ul style="float: left;">
+                <?php foreach (Mage::getModel("alipay/source_bank")->getBanks('DEBIT') as $bank): ?>
+                    <li class="bank_item">
+                        <p class="bank_select" title="<?php echo $bank['label'] ?>"><input type="radio" class="input-radio" id="<?php echo $_code ?>_payment_bank_<?php echo $bank['value'] ?>" name="payment[payment_bank]" value="<?php echo $bank['value'] ?>"<?php if ($_bank && $_bank['value'] == $bank['value']): ?> checked="checked"<?php endif; ?>><span class="<?php echo $bank['code']; ?> icon"></span></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </li>
+    <li class="section" style="height: 300px; width: 30%">
+        <div id="credit_title" class="step-title" style="margin-right: 5px;">
+            <h2><?php echo $this->__('Personal Banking (Credit Card)') ?></h2>
+        </div>
+        <div id="credit_banks" class="step a-item" style="padding: 10px 10px; width: 601px;<?php echo $left ?>">
+            <ul style="float: left;">
+                <?php foreach (Mage::getModel("alipay/source_bank")->getBanks('CREDIT') as $bank): ?>
+                    <li class="bank_item">
+                        <p class="bank_select" title="<?php echo $bank['label'] ?>"><input type="radio" class="input-radio" id="<?php echo $_code ?>_payment_bank_<?php echo $bank['value'] ?>" name="payment[payment_bank]" value="<?php echo $bank['value'] ?>"<?php if ($_bank && $_bank['value'] == $bank['value']): ?> checked="checked"<?php endif; ?>><span class="<?php echo $bank['code']; ?> icon"></span></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </li>
+    <li class="section" style="height: 300px; width: 30%">
+        <div id="b2b_title" class="step-title">
+            <h2><?php echo $this->__('Corporate Banking') ?></h2>
+        </div>
+        <div id="b2b_banks" class="step a-item" style="padding: 10px 10px; width: 601px;<?php echo $left ?>">
+            <ul style="float: left;">
+                <?php foreach (Mage::getModel("alipay/source_bank")->getBanks('B2B') as $bank): ?>
+                    <li class="bank_item">
+                        <p class="bank_select" title="<?php echo $bank['label'] ?>"><input type="radio" class="input-radio" id="<?php echo $_code ?>_payment_bank_<?php echo $bank['value'] ?>" name="payment[payment_bank]" value="<?php echo $bank['value'] ?>"<?php if ($_bank && $_bank['value'] == $bank['value']): ?> checked="checked"<?php endif; ?>><span class="<?php echo $bank['code']; ?> icon"></span></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </li>
+</ul>
+<script type="text/javascript">
+    //<![CDATA[
+    var selectGroup<?php echo $_code ?> = function(group) {
+        switch (group) {
+            case "CREDIT":
+                var creditTitle = $("credit_title");
+                if (creditTitle.style.outlineStyle !== "ridge") {
+                    creditTitle.style.outlineStyle = "ridge";
+                    creditTitle.style.cursor = "default";
+                    $("credit_banks").style.display = "";
+                    var debitTitle = $("debit_title");
+                    debitTitle.style.outlineStyle = "";
+                    debitTitle.style.cursor = "pointer";
+                    $("debit_banks").style.display = "none";
+                    var b2bTitle = $("b2b_title");
+                    b2bTitle.style.outlineStyle = "";
+                    b2bTitle.style.cursor = "pointer";
+                    $("b2b_banks").style.display = "none";
+                }
+                break;
+            case "B2B":
+                var b2bTitle = $("b2b_title");
+                if (b2bTitle.style.outlineStyle !== "ridge") {
+                    b2bTitle.style.outlineStyle = "ridge";
+                    b2bTitle.style.cursor = "default";
+                    $("b2b_banks").style.display = "";
+                    var creditTitle = $("credit_title");
+                    creditTitle.style.outlineStyle = "";
+                    creditTitle.style.cursor = "pointer";
+                    $("credit_banks").style.display = "none";
+                    var debitTitle = $("debit_title");
+                    debitTitle.style.outlineStyle = "";
+                    debitTitle.style.cursor = "pointer";
+                    $("debit_banks").style.display = "none";
+                }
+                break;
+            default:
+                var debitTitle = $("debit_title");
+                if (debitTitle.style.outlineStyle !== "ridge") {
+                    debitTitle.style.outlineStyle = "ridge";
+                    debitTitle.style.cursor = "default";
+                    $("debit_banks").style.display = "";
+                    var creditTitle = $("credit_title");
+                    creditTitle.style.outlineStyle = "";
+                    creditTitle.style.cursor = "pointer";
+                    $("credit_banks").style.display = "none";
+                    var b2bTitle = $("b2b_title");
+                    b2bTitle.style.outlineStyle = "";
+                    b2bTitle.style.cursor = "pointer";
+                    $("b2b_banks").style.display = "none";
+                }
+        }
+    };
+    Event.observe($('debit_title'), 'click', function() {
+        selectGroup<?php echo $_code ?>("DEBIT");
+    });
+    Event.observe($('credit_title'), 'click', function() {
+        selectGroup<?php echo $_code ?>("CREDIT");
+    });
+    Event.observe($('b2b_title'), 'click', function() {
+        selectGroup<?php echo $_code ?>("B2B");
+    });
+    selectGroup<?php echo $_code ?>("<?php echo $_bank ? $_bank['group'] : "" ?>");
+    //]]>
+</script>

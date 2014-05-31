@@ -17,9 +17,9 @@ class SunshineBiz_Facebook_Block_Button extends SunshineBiz_SocialConnect_Block_
         $this->disconnectUrl = 'facebook/connect/disconnect';
         
         $head = Mage::app()->getLayout()->getBlock('head');
-        $head->addItem('skin_css', 'facebook/css/button.css');
+        $head->addItem('skin_css', 'sunshinebiz/facebook/css/button.css');
      
-        $this->setTemplate('facebook/button.phtml');
+        $this->setTemplate('sunshinebiz/facebook/button.phtml');
     }
     
     protected function setCsrf($csrf) {

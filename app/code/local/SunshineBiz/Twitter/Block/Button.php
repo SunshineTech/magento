@@ -17,9 +17,9 @@ class SunshineBiz_Twitter_Block_Button extends SunshineBiz_SocialConnect_Block_B
         $this->disconnectUrl = 'twitter/connect/disconnect';
         
         $head = Mage::app()->getLayout()->getBlock('head');
-        $head->addItem('skin_css', 'twitter/css/button.css');
+        $head->addItem('skin_css', 'sunshinebiz/twitter/css/button.css');
      
-        $this->setTemplate('twitter/button.phtml');
+        $this->setTemplate('sunshinebiz/twitter/button.phtml');
     }
     
     protected function setCsrf($csrf) {

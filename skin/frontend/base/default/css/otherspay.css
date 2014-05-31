@@ -1,0 +1,19 @@
+.others_pay_link {
+    float: left;
+    color: #565656;
+    font-size: 12px;
+    border-right: 1px solid #ddd;
+    width: 66px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    outline: 0;
+    zoom: 1;
+}
+
+.others_pay_link.active {
+    padding: 4px 0;
+    margin: -4px 0 -4px -1px;
+    background: #C9DDEC;
+    box-shadow: 1px 1px 2px #ADBECB inset;
+}

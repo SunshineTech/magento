@@ -20,7 +20,7 @@ class SunshineBiz_Facebook_Block_Account extends Mage_Core_Block_Template {
                 'socialconnect_account_facebook_button', $this->helper('socialconnect')->getMethodButtonBlock(Mage::getSingleton('facebook/method'))
         );
 
-        $this->setTemplate('facebook/account.phtml');
+        $this->setTemplate('sunshinebiz/facebook/account.phtml');
 
         return parent::_prepareLayout();
     }

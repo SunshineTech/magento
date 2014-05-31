@@ -1,0 +1,40 @@
+.clear_both{clear:both;overflow:hidden;height:1px;}
+/* hover images*/
+.product_body ul li{float: left;  width: 135px; height: 135px; margin: 0px 10px 15px 11px; list-style-type: none;}
+.boxcaption h3{ margin: 5px 10px 0 10px; color:#fff; font:14px Arial, sans-serif; letter-spacing:-1px;text-align:left;  line-height:19px; }
+.boxcaption h3 a{ color:#fff;}
+.boxcaption h3 a:hover{text-decoration:none;}
+.caption .boxcaption {top: 135px;left: 0;}
+.boxgrid{ width: 155px; height: 250px; float:left; overflow: hidden; position: relative; }
+.boxgrid img{position: absolute;top: 0;left: 0;border: 0; background:#fff;}
+.boxcaption{ 
+    float: left;
+    position: absolute;
+    background: #ffffff;
+    opacity: .89;
+    /* For IE 5-7 */
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=89);
+    /* For IE 8 */
+    -MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=89)";
+}
+.group_box {
+    margin:7px 2px 0px 2px;
+}
+.box_price {
+    float:left;
+}
+.box_price span {
+    font-size:11px;color:#E26703;
+    font-weight:bold;
+}
+.box_adtocat {
+    float:right;
+}
+.box_adtocat a {
+    color:#E26703;
+    font-size:11px;
+}
+
+ol.grid-row{clear: both; list-style: none; margin : 5px 0px; float: left;}
+ol.grid-row li.item{float: left; width: 135px; margin: 0px 10px 0px 0px; list-style-type: : none;}
+.toolbar{clear: both;}

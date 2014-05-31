@@ -74,7 +74,7 @@
 "Total of %d building(s) were successfully deleted.","已成功删除%d个小区/大厦。"
 "Total of %d region(s) were successfully deleted.","已成功删除%d个州/省。"
 "Trade Circle","商圈"
-"Unable to find a area to delete.","不能找到需删除的区域。"
+"Unable to find an area to delete.","不能找到需删除的区域。"
 "Unable to find a building to delete.","不能找到需删除的小区/大厦。"
 "Unable to find a region to delete.","不能找到需删除的州/省"
 "View",""

@@ -31,7 +31,7 @@
         <layout>
             <updates>
                 <sunshinebiz_sales>
-                    <file>sunshinebiz_sales.xml</file>
+                    <file>sunshinebiz/sales.xml</file>
                 </sunshinebiz_sales>
             </updates>
         </layout>

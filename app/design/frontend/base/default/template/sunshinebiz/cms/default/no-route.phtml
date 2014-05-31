@@ -1,0 +1,36 @@
+<?php
+/**
+ *
+ * @category SunshineBiz
+ * @package Cms
+ * @author     iSunshineTech <isunshinetech@gmail.com>
+ * @copyright   Copyright (c) 2014 SunshineBiz.commerce, Inc. (http://www.sunshinebiz.cn)
+ */
+?>
+<div class="std">
+    <div class="page-title">
+        <h1><?php echo $this->__('Error') ?></h1>
+    </div>
+    <dl>
+        <dt><?php echo $this->__('The page you requested was not found, and we have a fine guess why.') ?></dt>
+        <dd>
+            <ul class="disc">
+                <li><?php echo $this->__('If you typed the URL directly, please make sure the spelling is correct.') ?></li>
+                <li><?php echo $this->__('If you clicked on a link to get here, the link is outdated.') ?></li>
+            </ul>
+        </dd>
+    </dl>
+    <p>&nbsp;</p>
+    <dl>
+        <dt><?php echo $this->__('What can you do?') ?></dt>
+        <dd><?php echo $this->__('Have no fear, help is near! There are many ways you can get back on track with this website.') ?></dd>
+        <dd>
+            <ul class="disc">
+                <li><?php echo $this->__('<a onclick="history.go(-1);" href="#">Go back</a> to the previous page.') ?></li>
+                <li><?php echo $this->__('Use the search bar at the top of the page to search for your products.') ?></li>
+                <li><?php echo $this->__('Follow these links to get you back on track!<br /><a href="%s">Store Home</a><br /><a href="%s">My Account</a>', Mage::getBaseUrl(), $this->getUrl('customer/account')) ?></li>
+            </ul>
+        </dd>
+    </dl>
+    <p>&nbsp;</p>
+</div>

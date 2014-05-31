@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <dev>
+            <groups>
+                <better404 translate="label" module="pulsestorm_better404">
+                    <label>A programmer's 404 page</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <code translate="label">
+                            <label>Access Code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[If access code is used then you need to add query string as:<br />http://magento-url/any-page<strong>?p404=1&code=code-entered-above</strong> in order to turn on the programmer's 404 page. Else you can simply use <strong>?p404=1</strong>.]]></comment>
+                        </code>
+                    </fields>
+                </better404>
+            </groups>
+        </dev>
+    </sections>
+</config>

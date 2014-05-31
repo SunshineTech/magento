@@ -60,7 +60,7 @@
         <layout>
             <updates>
                 <google>
-                    <file>google.xml</file>
+                    <file>sunshinebiz/google.xml</file>
                 </google>
             </updates>
         </layout>

@@ -17,9 +17,9 @@ class SunshineBiz_Alipay_Block_Login_Button extends SunshineBiz_SocialConnect_Bl
         $this->disconnectUrl = 'alipay/login/disconnect';
         
         $head = Mage::app()->getLayout()->getBlock('head');
-        $head->addItem('skin_css', 'alipay/login/css/button.css');
+        $head->addItem('skin_css', 'sunshinebiz/alipay/login/css/button.css');
      
-        $this->setTemplate('alipay/login/button.phtml');
+        $this->setTemplate('sunshinebiz/alipay/login/button.phtml');
     }
     
     protected function _getButtonText() {

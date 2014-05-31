@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<layout>
+    <cms_index_defaultnoroute>
+        <remove name="default_no_route"/>
+        <reference name="content">
+            <block type="core/template" name="cms.wrapper" template="sunshinebiz/cms/default/no-route.phtml"/>
+        </reference>
+    </cms_index_defaultnoroute>
+    
+    <cms_index_nocustomindex>
+        <update handle="page_two_columns_right"/>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/sunshinebiz/cms/glider.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/sunshinebiz/cms/glider.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>css/sunshinebiz/catalog/quickview.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/sunshinebiz/catalog/quickview.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/sunshinebiz/catalog/jquery.jcarousel.pack.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/sunshinebiz/catalog/script.js</name>
+            </action>			
+            <action method="addCss">
+                <stylesheet>css/sunshinebiz/catalog/jquery.jcarousel.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/sunshinebiz/catalog/skin.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/sunshinebiz/catalog/boxcaption.css</stylesheet>
+            </action>            
+        </reference>
+        <reference name="content">
+            <block type="sunshinebiz_cms/media_slider" name="home.landing" alias="home_landing">
+                <action method="setPosition">
+                    <position>Homepage Landing</position>
+                </action>
+            </block>
+            <block type="sunshinebiz_catalog/product_feature" name="content.product.feature" alias="feature"/>
+        </reference>
+        <reference name="right">
+            <block type="core/template" name="right.callout1" template="callouts/left_col.phtml" before="-">
+                <action method="setImgSrc">
+                    <src>images/media/callout_side1.jpg</src>
+                </action>
+                <action method="setImgAlt" translate="alt" module="catalog">
+                    <alt>Call Us Toll Free. (555) 555-555</alt>
+                </action>
+                <action method="setLinkUrl">
+                    <url>checkout/cart</url>
+                </action>
+            </block>
+            <block type="core/template" name="right.callout2" template="callouts/left_col.phtml" after="right.callout1">
+                <action method="setImgSrc">
+                    <src>images/media/callout_side2.jpg</src>
+                </action>
+                <action method="setImgAlt" translate="alt" module="catalog">
+                    <alt>Free domestic shippings</alt>
+                </action>
+                <action method="setLinkUrl">
+                    <url>checkout/cart</url>
+                </action>
+            </block>
+            <block type="newsletter/subscribe" name="right.newsletter" template="newsletter/subscribe.phtml" after="right.callout2"/>
+            <block type="tag/popular" name="tags_popular" template="tag/popular.phtml"/>            
+        </reference>
+    </cms_index_nocustomindex>
+</layout>

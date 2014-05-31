@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="footer_links">
+ 
+           <!-- <action method="addLink" translate="label title">
+                <label>Switch PC</label>
+                <url>new</url>
+                <title>New</title>
+                <prepare>true</prepare>
+            </action>  -->
+            <block type="themeswitcher/themeswitcher" name="themswitchernew">
+                <action method="addFooterLink" />
+            </block>
+        </reference>
+    </default>
+</layout>

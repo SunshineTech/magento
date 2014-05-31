@@ -12,7 +12,7 @@ class SunshineBiz_Sales_Block_Order_Info_Buttons extends Mage_Sales_Block_Order_
 
     protected function _construct() {
         parent::_construct();
-        $this->setTemplate('sunshinebiz_sales/order/info/buttons.phtml');
+        $this->setTemplate('sunshinebiz/sales/order/info/buttons.phtml');
     }
 
     public function getPayUrl($order) {

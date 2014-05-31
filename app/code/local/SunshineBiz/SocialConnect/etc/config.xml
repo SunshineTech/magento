@@ -44,7 +44,7 @@
         <layout>
             <updates>
                 <socialconnect>
-                    <file>socialconnect.xml</file>
+                    <file>sunshinebiz/socialconnect.xml</file>
                 </socialconnect>
             </updates>
         </layout>

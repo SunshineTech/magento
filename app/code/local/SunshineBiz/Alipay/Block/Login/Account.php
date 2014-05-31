@@ -20,7 +20,7 @@ class SunshineBiz_Alipay_Block_Login_Account extends Mage_Core_Block_Template {
                 'socialconnect_account_alipay_button', $this->helper('socialconnect')->getMethodButtonBlock(Mage::getSingleton('alipay/login'))
         );
 
-        $this->setTemplate('alipay/login/account.phtml');
+        $this->setTemplate('sunshinebiz/alipay/login/account.phtml');
 
         return parent::_prepareLayout();
     }
